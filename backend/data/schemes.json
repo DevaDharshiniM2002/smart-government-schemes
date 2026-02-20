@@ -1,0 +1,401 @@
+[
+  {
+    "id": "1",
+    "name": "Prime Minister Scholarship Scheme",
+    "category": "education",
+    "summary": "Financial assistance for meritorious students from disadvantaged backgrounds",
+    "tags": ["scholarship", "merit", "education", "central"],
+    "eligibility": [
+      "Annual family income less than 8 LPA",
+      "Minimum 60% marks in previous exam",
+      "Indian citizen",
+      "Age between 18-35 years"
+    ],
+    "documents": [
+      "Aadhar Card",
+      "10th & 12th marksheets",
+      "Income certificate",
+      "Bank account details"
+    ],
+    "apply_url": "https://scholarships.gov.in"
+  },
+  {
+    "id": "2",
+    "name": "Ayushman Bharat - PMJAY",
+    "category": "health",
+    "summary": "Health insurance scheme covering up to ₹5 lakhs per family per year",
+    "tags": ["health insurance", "medical", "central", "free healthcare"],
+    "eligibility": [
+      "Below poverty line families",
+      "APL families from priority list",
+      "Registered as SECC members",
+      "No age restriction"
+    ],
+    "documents": [
+      "Aadhar Card",
+      "Ration card",
+      "SECC registration",
+      "Identity proof"
+    ],
+    "apply_url": "https://pmjay.gov.in"
+  },
+  {
+    "id": "3",
+    "name": "Pradhan Mantri Kisan Samman Nidhi",
+    "category": "agriculture",
+    "summary": "Direct income support of ₹6,000 per year for farmers",
+    "tags": ["farmer subsidy", "income support", "agriculture", "central"],
+    "eligibility": [
+      "Small and marginal farmers",
+      "Annual income less than ₹1.5 lakhs",
+      "Own cultivable land",
+      "Not government employee"
+    ],
+    "documents": [
+      "Land ownership certificate",
+      "Aadhar Card",
+      "Bank account details",
+      "Land records"
+    ],
+    "apply_url": "https://pmkisan.gov.in"
+  },
+  {
+    "id": "4",
+    "name": "Pradhan Mantri Awas Yojana",
+    "category": "housing",
+    "summary": "Affordable housing scheme for economically weaker sections",
+    "tags": ["housing", "home loan", "affordable housing", "central"],
+    "eligibility": [
+      "Annual family income less than 18 lakhs",
+      "No house ownership",
+      "Head of family can be male or female",
+      "Indian citizen"
+    ],
+    "documents": [
+      "Aadhar Card",
+      "Income certificate",
+      "Land ownership proof",
+      "Bank account details"
+    ],
+    "apply_url": "https://pmay.gov.in"
+  },
+  {
+    "id": "5",
+    "name": "Ujjwala Scheme",
+    "category": "women",
+    "summary": "Free cooking gas connections for women from BPL families",
+    "tags": ["women empowerment", "gas connection", "welfare"],
+    "eligibility": [
+      "Woman head of household",
+      "Below poverty line",
+      "Age above 18 years",
+      "Indian citizen"
+    ],
+    "documents": [
+      "Aadhar Card",
+      "Ration card",
+      "Bank account details",
+      "Identity proof"
+    ],
+    "apply_url": "https://ujjwala.gov.in"
+  },
+  {
+    "id": "6",
+    "name": "Indira Gandhi National Old Age Pension",
+    "category": "pensions",
+    "summary": "Monthly pension of ₹500-1000 for senior citizens",
+    "tags": ["pension", "senior citizen", "social security"],
+    "eligibility": [
+      "Age 60 years and above",
+      "Below poverty line",
+      "No regular income",
+      "Indian citizen"
+    ],
+    "documents": [
+      "Age proof (birth certificate)",
+      "Aadhar Card",
+      "Income certificate",
+      "Bank account details"
+    ],
+    "apply_url": "https://nrega.nic.in"
+  },
+  {
+    "id": "7",
+    "name": "Sukanya Samriddhi Yojana",
+    "category": "women",
+    "summary": "Savings scheme for girl child with guaranteed returns",
+    "tags": ["girl child", "savings", "education"],
+    "eligibility": [
+      "Girl child below 10 years",
+      "Only one account per child",
+      "Parents/guardians can open account",
+      "Indian resident"
+    ],
+    "documents": [
+      "Girl child birth certificate",
+      "Parent/guardian ID",
+      "Address proof",
+      "Bank account details"
+    ],
+    "apply_url": "https://ssy.ssa.gov.in"
+  },
+  {
+    "id": "8",
+    "name": "National Rural Livelihood Mission",
+    "category": "agriculture",
+    "summary": "Livelihood support and training for rural communities",
+    "tags": ["rural development", "livelihood", "training"],
+    "eligibility": [
+      "Rural residents",
+      "Below poverty line",
+      "Age above 18 years",
+      "Willing to form groups"
+    ],
+    "documents": [
+      "Aadhar Card",
+      "Income certificate",
+      "Ration card",
+      "Bank account details"
+    ],
+    "apply_url": "https://nrlm.gov.in"
+  },
+  {
+    "id": "9",
+    "name": "National Widow Pension Scheme",
+    "category": "widow",
+    "summary": "Monthly financial assistance for widows below poverty line",
+    "tags": ["widow", "pension", "social security"],
+    "eligibility": [
+      "Widow aged 40-59 years",
+      "Below poverty line",
+      "No regular income source",
+      "Indian citizen"
+    ],
+    "documents": [
+      "Husband's death certificate",
+      "Aadhar Card",
+      "Income certificate",
+      "Bank account details"
+    ],
+    "apply_url": "https://socialjustice.gov.in"
+  },
+  {
+    "id": "10",
+    "name": "Transgender Welfare Scheme",
+    "category": "transgender",
+    "summary": "Financial support and skill development for transgender community",
+    "tags": ["transgender", "welfare", "skill development"],
+    "eligibility": [
+      "Transgender identity certificate",
+      "Age above 18 years",
+      "Indian citizen",
+      "Below poverty line"
+    ],
+    "documents": [
+      "Transgender certificate",
+      "Aadhar Card",
+      "Income certificate",
+      "Bank account details"
+    ],
+    "apply_url": "https://socialjustice.gov.in"
+  },
+  {
+    "id": "11",
+    "name": "Disability Pension Scheme",
+    "category": "disabled",
+    "summary": "Monthly pension for persons with disabilities",
+    "tags": ["disability", "pension", "social security"],
+    "eligibility": [
+      "40% or more disability",
+      "Age 18-59 years",
+      "Below poverty line",
+      "Indian citizen"
+    ],
+    "documents": [
+      "Disability certificate",
+      "Aadhar Card",
+      "Income certificate",
+      "Bank account details"
+    ],
+    "apply_url": "https://disabilityaffairs.gov.in"
+  },
+  {
+    "id": "12",
+    "name": "Senior Citizen Savings Scheme",
+    "category": "senior",
+    "summary": "High-interest savings scheme for senior citizens",
+    "tags": ["senior citizen", "savings", "investment"],
+    "eligibility": [
+      "Age 60 years and above",
+      "Indian citizen",
+      "Maximum deposit ₹15 lakhs",
+      "5-year tenure"
+    ],
+    "documents": [
+      "Age proof",
+      "Aadhar Card",
+      "PAN Card",
+      "Bank account details"
+    ],
+    "apply_url": "https://www.indiapost.gov.in"
+  },
+  {
+    "id": "13",
+    "name": "Pradhan Mantri Kaushal Vikas Yojana",
+    "category": "employment",
+    "summary": "Free skill training and certification for youth employment",
+    "tags": ["skill development", "employment", "training"],
+    "eligibility": [
+      "Age 15-45 years",
+      "School dropout or unemployed",
+      "Indian citizen",
+      "Willing to undergo training"
+    ],
+    "documents": [
+      "Aadhar Card",
+      "Educational certificates",
+      "Bank account details",
+      "Identity proof"
+    ],
+    "apply_url": "https://pmkvyofficial.org"
+  },
+  {
+    "id": "14",
+    "name": "Minority Scholarship Scheme",
+    "category": "minority",
+    "summary": "Educational scholarships for minority community students",
+    "tags": ["minority", "scholarship", "education"],
+    "eligibility": [
+      "Belong to minority community",
+      "Annual family income less than 8 LPA",
+      "Minimum 50% marks",
+      "Indian citizen"
+    ],
+    "documents": [
+      "Community certificate",
+      "Aadhar Card",
+      "Income certificate",
+      "Marksheets"
+    ],
+    "apply_url": "https://scholarships.gov.in"
+  },
+  {
+    "id": "15",
+    "name": "Mid-Day Meal Scheme",
+    "category": "education",
+    "summary": "Free nutritious meals for school children",
+    "tags": ["education", "nutrition", "children"],
+    "eligibility": [
+      "Government school students",
+      "Class 1 to 8",
+      "No income restriction",
+      "Indian citizen"
+    ],
+    "documents": [
+      "School enrollment proof",
+      "Aadhar Card",
+      "Identity proof"
+    ],
+    "apply_url": "https://mdm.nic.in"
+  },
+  {
+    "id": "16",
+    "name": "Janani Suraksha Yojana",
+    "category": "health",
+    "summary": "Cash assistance for pregnant women for institutional delivery",
+    "tags": ["maternal health", "pregnancy", "women"],
+    "eligibility": [
+      "Pregnant women",
+      "Below poverty line",
+      "Institutional delivery",
+      "Indian citizen"
+    ],
+    "documents": [
+      "Pregnancy certificate",
+      "Aadhar Card",
+      "Ration card",
+      "Bank account details"
+    ],
+    "apply_url": "https://nhm.gov.in"
+  },
+  {
+    "id": "17",
+    "name": "Kisan Credit Card",
+    "category": "agriculture",
+    "summary": "Credit facility for farmers to meet agricultural expenses",
+    "tags": ["agriculture", "credit", "loan"],
+    "eligibility": [
+      "Farmer with cultivable land",
+      "Age 18-75 years",
+      "Indian citizen",
+      "Good credit history"
+    ],
+    "documents": [
+      "Land records",
+      "Aadhar Card",
+      "Bank account details",
+      "Identity proof"
+    ],
+    "apply_url": "https://pmkisan.gov.in"
+  },
+  {
+    "id": "18",
+    "name": "Pradhan Mantri Mudra Yojana",
+    "category": "employment",
+    "summary": "Micro-loans up to ₹10 lakhs for small businesses",
+    "tags": ["business loan", "entrepreneurship", "employment"],
+    "eligibility": [
+      "Small business owner",
+      "Age above 18 years",
+      "Indian citizen",
+      "Business plan required"
+    ],
+    "documents": [
+      "Business plan",
+      "Aadhar Card",
+      "Bank account details",
+      "Identity proof"
+    ],
+    "apply_url": "https://www.mudra.org.in"
+  },
+  {
+    "id": "19",
+    "name": "Beti Bachao Beti Padhao",
+    "category": "women",
+    "summary": "Campaign to save and educate girl child",
+    "tags": ["girl child", "education", "women empowerment"],
+    "eligibility": [
+      "Girl child",
+      "Indian citizen",
+      "No income restriction",
+      "Focus on education"
+    ],
+    "documents": [
+      "Birth certificate",
+      "Aadhar Card",
+      "School enrollment",
+      "Parent ID"
+    ],
+    "apply_url": "https://wcd.nic.in"
+  },
+  {
+    "id": "20",
+    "name": "Atal Pension Yojana",
+    "category": "pensions",
+    "summary": "Pension scheme for unorganized sector workers",
+    "tags": ["pension", "retirement", "social security"],
+    "eligibility": [
+      "Age 18-40 years",
+      "Indian citizen",
+      "Bank account holder",
+      "Not income tax payer"
+    ],
+    "documents": [
+      "Aadhar Card",
+      "Bank account details",
+      "Mobile number",
+      "Identity proof"
+    ],
+    "apply_url": "https://npscra.nsdl.co.in"
+  }
+]

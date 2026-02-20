@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Access to Government Schemes</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: linear-gradient(135deg, #e0f2fe 0%, #fef3c7 50%, #fce7f3 100%); color: #1f2937; scroll-behavior: smooth; }
+        
+        .navbar { background: linear-gradient(90deg, #dbeafe 0%, #fef3c7 50%, #fce7f3 100%); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 28px; font-weight: 900; color: #1e40af; letter-spacing: -0.5px; }
+        .nav-menu { display: flex; gap: 32px; list-style: none; }
+        .nav-menu a { color: #1e40af; text-decoration: none; font-weight: 700; transition: all 0.2s; }
+        .nav-menu a:hover { color: #f59e0b; background: rgba(255,255,255,0.5); padding: 8px 16px; border-radius: 8px; }
+        .nav-buttons { display: flex; gap: 12px; }
+        .btn { padding: 10px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; transition: all 0.3s; }
+        .btn-login { background: linear-gradient(135deg, #dbeafe, #bfdbfe); color: #1e40af; border: 2px solid #1e40af; }
+        .btn-register { background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; }
+        .btn-register:hover { background: #1e3a8a; transform: translateY(-2px); }
+        
+        .hero { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%); color: white; padding: 100px 20px; text-align: center; }
+        .hero h1 { font-size: 56px; font-weight: 800; margin-bottom: 20px; }
+        .hero p { font-size: 20px; margin-bottom: 40px; opacity: 0.95; }
+        .search-container { max-width: 700px; margin: 0 auto 30px; position: relative; }
+        .search-box { width: 100%; padding: 18px 60px 18px 24px; border-radius: 50px; border: none; font-size: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .voice-icon { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 24px; cursor: pointer; }
+        .btn-explore { padding: 16px 40px; background: #f59e0b; color: white; border: none; border-radius: 50px; font-size: 18px; font-weight: 700; cursor: pointer; }
+        .btn-explore:hover { background: #d97706; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245,158,11,0.4); }
+        
+        .slider-section { padding: 80px 20px; background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 50%, #e0f2fe 100%); }
+        .slider-title { text-align: center; font-size: 36px; font-weight: 800; color: #1e40af; margin-bottom: 50px; }
+        .slider-container { max-width: 1400px; margin: 0 auto; }
+        .category-grid-static { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .category-card { min-width: 320px; background: linear-gradient(135deg, #ffffff, #f0f9ff); border-radius: 16px; padding: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); border: 2px solid #bfdbfe; transition: all 0.3s; }
+        .category-card:hover { border-color: #1e40af; transform: translateY(-4px); box-shadow: 0 8px 24px rgba(30,64,175,0.15); }
+        .category-icon { font-size: 48px; margin-bottom: 16px; }
+        .category-name { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #1f2937; }
+        .category-desc { font-size: 14px; color: #6b7280; margin-bottom: 16px; }
+        .btn-explore-cat { padding: 10px 24px; background: linear-gradient(135deg, #f59e0b, #f97316); color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; box-shadow: 0 2px 8px rgba(245,158,11,0.3); }
+        
+        .about-section { padding: 80px 20px; max-width: 1000px; margin: 0 auto; }
+        .about-title { font-size: 40px; font-weight: 800; color: #1e40af; margin-bottom: 24px; text-align: center; }
+        .about-content { font-size: 18px; line-height: 1.8; color: #4b5563; margin-bottom: 40px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+        .feature-item { padding: 24px; background: linear-gradient(135deg, #fef3c7, #fef9c3); border-radius: 12px; border-left: 4px solid #f59e0b; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .feature-title { font-size: 18px; font-weight: 700; color: #1f2937; margin-bottom: 8px; }
+        .feature-desc { font-size: 14px; color: #6b7280; }
+        
+        .footer { background: #1f2937; color: white; padding: 40px 20px; text-align: center; }
+        
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .hero h1 { font-size: 36px; }
+            .slider-track { animation: slide 20s linear infinite; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🏛️ NAMMA SCHEMES</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#schemes">Schemes</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button class="btn btn-login">Login</button>
+                <button class="btn btn-register">Register</button>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="hero" id="home">
+        <h1>Smart Access to Government Schemes</h1>
+        <p>AI-powered platform connecting citizens with welfare benefits</p>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search for schemes, benefits, or categories...">
+            <span class="voice-icon">🎤</span>
+        </div>
+        <button class="btn-explore">Explore Schemes</button>
+    </section>
+    
+    <section class="slider-section" id="categories">
+        <h2 class="slider-title">Discover Schemes by Category</h2>
+        <div class="slider-container">
+            <div class="category-grid-static">
+                <div class="category-card">
+                    <div class="category-icon">🌾</div>
+                    <h3 class="category-name">Agriculture & Farmers</h3>
+                    <p class="category-desc">PM-KISAN, crop insurance, subsidies</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">👩</div>
+                    <h3 class="category-name">Women Empowerment</h3>
+                    <p class="category-desc">Beti Bachao, Mahila Shakti Kendra</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🎓</div>
+                    <h3 class="category-name">Education & Scholarships</h3>
+                    <p class="category-desc">NSP, PM Scholarship, Mid-Day Meal</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">💼</div>
+                    <h3 class="category-name">MSME & Startups</h3>
+                    <p class="category-desc">Mudra Yojana, Startup India</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏥</div>
+                    <h3 class="category-name">Healthcare</h3>
+                    <p class="category-desc">Ayushman Bharat, PMJAY</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏠</div>
+                    <h3 class="category-name">Housing</h3>
+                    <p class="category-desc">PM Awas Yojana, PMAY-Urban</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">💻</div>
+                    <h3 class="category-name">Employment & Skills</h3>
+                    <p class="category-desc">PMKVY, MGNREGA, DDU-GKY</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">👴</div>
+                    <h3 class="category-name">Senior Citizens</h3>
+                    <p class="category-desc">Old Age Pension, PMVVY</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">♿</div>
+                    <h3 class="category-name">Differently Abled</h3>
+                    <p class="category-desc">ADIP, DDRS, Disability Pension</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🤝</div>
+                    <h3 class="category-name">SC/ST/OBC</h3>
+                    <p class="category-desc">Post-Matric Scholarship, NSFDC</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">👶</div>
+                    <h3 class="category-name">Child Welfare</h3>
+                    <p class="category-desc">ICDS, Poshan Abhiyaan, Balika Samridhi</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏳️⚧️</div>
+                    <h3 class="category-name">Transgender</h3>
+                    <p class="category-desc">Garima Greh, Scholarship schemes</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">⚡</div>
+                    <h3 class="category-name">Energy & Power</h3>
+                    <p class="category-desc">Saubhagya, UJALA, Solar schemes</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">💧</div>
+                    <h3 class="category-name">Water & Sanitation</h3>
+                    <p class="category-desc">Jal Jeevan Mission, Swachh Bharat</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🚗</div>
+                    <h3 class="category-name">Transport</h3>
+                    <p class="category-desc">PM e-Bus Sewa, Road schemes</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🌳</div>
+                    <h3 class="category-name">Environment</h3>
+                    <p class="category-desc">Green India Mission, CAMPA</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏭</div>
+                    <h3 class="category-name">Industry</h3>
+                    <p class="category-desc">Make in India, PLI schemes</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">📱</div>
+                    <h3 class="category-name">Digital India</h3>
+                    <p class="category-desc">BharatNet, DigiLocker, UMANG</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🛡️</div>
+                    <h3 class="category-name">Social Security</h3>
+                    <p class="category-desc">PMJJBY, PMSBY, APY</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏛️</div>
+                    <h3 class="category-name">Legal Aid</h3>
+                    <p class="category-desc">NALSA, Free Legal Services</p>
+                    <button class="btn-explore-cat">Explore</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about-section" id="about">
+        <h2 class="about-title">About Our Platform</h2>
+        <p class="about-content">
+            Our AI-powered Government Scheme Discovery Platform revolutionizes how citizens access welfare benefits. 
+            We bridge the gap between government schemes and beneficiaries through intelligent matching, personalized 
+            recommendations, and simplified application processes. Our mission is to ensure no eligible citizen misses 
+            out on benefits they deserve.
+        </p>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3 class="feature-title">🧠 AI-Powered Personalization</h3>
+                <p class="feature-desc">Smart algorithms match you with relevant schemes based on your profile</p>
+            </div>
+            <div class="feature-item">
+                <h3 class="feature-title">🔍 Smart Filtering</h3>
+                <p class="feature-desc">Advanced search and filter options to find exactly what you need</p>
+            </div>
+            <div class="feature-item">
+                <h3 class="feature-title">🔒 Secure Registration</h3>
+                <p class="feature-desc">Protected user accounts with encrypted data storage</p>
+            </div>
+
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <p>© 2024 Government Scheme Discovery Platform. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: 14px; opacity: 0.8;">A Digital India Initiative</p>
+    </footer>
+    <script>
+        // Login button
+        document.querySelector('.btn-login').addEventListener('click', () => {
+            alert('Login functionality - Redirecting to login page...');
+            // window.location.href = 'login.html';
+        });
+        
+        // Register button
+        document.querySelector('.btn-register').addEventListener('click', () => {
+            window.location.href = 'register.html';
+        });
+        
+        // Explore Schemes button
+        document.querySelector('.btn-explore').addEventListener('click', () => {
+            document.querySelector('#categories').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Voice search icon
+        document.querySelector('.voice-icon').addEventListener('click', () => {
+            alert('Voice search activated! 🎤\nSpeak your query...');
+            // Implement voice recognition API here
+        });
+        
+        // All category Explore buttons
+        document.querySelectorAll('.btn-explore-cat').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const categoryName = e.target.closest('.category-card').querySelector('.category-name').textContent;
+                alert(`Exploring ${categoryName} schemes...\nShowing all available schemes in this category.`);
+                // window.location.href = `schemes.html?category=${categoryName}`;
+            });
+        });
+        
+        // Search box functionality
+        document.querySelector('.search-box').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const query = e.target.value;
+                if (query.trim()) {
+                    alert(`Searching for: "${query}"\nShowing relevant schemes...`);
+                    // window.location.href = `search.html?q=${query}`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

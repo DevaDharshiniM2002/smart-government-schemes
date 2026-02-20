@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Namma Schemes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F4F7FB;
+            color: #222;
+        }
+        .header {
+            background: #0B3D91;
+            color: white;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .logout-btn {
+            background: white;
+            color: #0B3D91;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .stat-card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .stat-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0B3D91;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+        .section {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0B3D91;
+            margin-bottom: 24px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table th {
+            background: #F4F7FB;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #0B3D91;
+            border-bottom: 2px solid #E0E0E0;
+        }
+        .table td {
+            padding: 12px;
+            border-bottom: 1px solid #E0E0E0;
+        }
+        .table tr:hover {
+            background: #F9FAFB;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .badge-success {
+            background: #D4EDDA;
+            color: #155724;
+        }
+        .badge-info {
+            background: #D1ECF1;
+            color: #0C5460;
+        }
+        .refresh-btn {
+            background: #0B3D91;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .refresh-btn:hover {
+            background: #082C6C;
+        }
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>🏛️ Admin Dashboard - Namma Schemes</h1>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <button class="refresh-btn" onclick="loadData()">🔄 Refresh Data</button>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-value" id="totalUsers">0</div>
+                <div class="stat-label">Total Users</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📝</div>
+                <div class="stat-value" id="todayRegistrations">0</div>
+                <div class="stat-label">Today's Registrations</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔐</div>
+                <div class="stat-value" id="todayLogins">0</div>
+                <div class="stat-label">Today's Logins</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-value" id="activeUsers">0</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Recent Registrations</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Registration Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="registrationsTable">
+                    <tr>
+                        <td colspan="4" style="text-align: center; padding: 40px;">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">User Activity Logs</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Action</th>
+                        <th>Timestamp</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="activityTable">
+                    <tr>
+                        <td colspan="4" style="text-align: center; padding: 40px;">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Check admin authentication
+        const adminUser = JSON.parse(localStorage.getItem('adminUser') || 'null');
+        if (!adminUser || adminUser.email !== 'admin@nammaschemes.gov.in') {
+            location.href = 'admin-login.html';
+        }
+
+        function logout() {
+            localStorage.removeItem('adminUser');
+            location.href = 'admin-login.html';
+        }
+
+        function loadData() {
+            // Fetch from backend API
+            fetch('http://127.0.0.1:8000/api/admin/stats')
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('totalUsers').textContent = data.total_users || 0;
+                    document.getElementById('todayRegistrations').textContent = data.today_registrations || 0;
+                    document.getElementById('todayLogins').textContent = data.today_logins || 0;
+                    document.getElementById('activeUsers').textContent = data.active_users || 0;
+                })
+                .catch(err => console.error('Stats error:', err));
+            
+            // Fetch users
+            fetch('http://127.0.0.1:8000/api/admin/users')
+                .then(res => res.json())
+                .then(data => {
+                    const users = data.users || [];
+                    if (users.length === 0) {
+                        document.getElementById('registrationsTable').innerHTML = `
+                            <tr><td colspan="4" style="text-align: center; padding: 40px;">No registrations yet</td></tr>
+                        `;
+                    } else {
+                        document.getElementById('registrationsTable').innerHTML = users.slice(0, 10).map(user => `
+                            <tr>
+                                <td>${user.name}</td>
+                                <td>${user.email}</td>
+                                <td>${new Date(user.created).toLocaleString()}</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                            </tr>
+                        `).join('');
+                    }
+                })
+                .catch(err => console.error('Users error:', err));
+            
+            // Fetch activity logs
+            fetch('http://127.0.0.1:8000/api/admin/activity-logs')
+                .then(res => res.json())
+                .then(data => {
+                    const logs = data.logs || [];
+                    if (logs.length === 0) {
+                        document.getElementById('activityTable').innerHTML = `
+                            <tr><td colspan="4" style="text-align: center; padding: 40px;">No activity logs yet</td></tr>
+                        `;
+                    } else {
+                        document.getElementById('activityTable').innerHTML = logs.slice(0, 20).map(log => `
+                            <tr>
+                                <td>${log.userName}</td>
+                                <td>${log.action === 'login' ? '🔐 Login' : '📝 Registration'}</td>
+                                <td>${new Date(log.timestamp).toLocaleString()}</td>
+                                <td><span class="badge badge-info">Success</span></td>
+                            </tr>
+                        `).join('');
+                    }
+                })
+                .catch(err => console.error('Logs error:', err));
+        }
+
+        // Load data on page load
+        loadData();
+
+        // Auto-refresh every 30 seconds
+        setInterval(loadData, 30000);
+
+        // Check for new notifications
+        function checkNewNotifications() {
+            const lastCheck = localStorage.getItem('adminLastCheck') || '0';
+            const activityLogs = JSON.parse(localStorage.getItem('activityLogs') || '[]');
+            
+            const newLogs = activityLogs.filter(log => 
+                new Date(log.timestamp) > new Date(parseInt(lastCheck))
+            );
+            
+            if (newLogs.length > 0) {
+                console.log(`${newLogs.length} new user activities detected`);
+                // In production, this would trigger email notification
+            }
+            
+            localStorage.setItem('adminLastCheck', Date.now().toString());
+        }
+
+        checkNewNotifications();
+        setInterval(checkNewNotifications, 60000);
+    </script>
+</body>
+</html>

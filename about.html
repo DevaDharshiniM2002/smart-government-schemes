@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Namma Schemes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F4F7FB;
+            color: #222;
+        }
+        .gov-strip {
+            background: #0F3C6E;
+            color: white;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+        .gov-strip .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .main-header {
+            background: white;
+            border-bottom: 3px solid #1B5E9E;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-section h1 {
+            color: #1B5E9E;
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .logo-section p {
+            color: #666;
+            font-size: 14px;
+        }
+        .btn {
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-secondary {
+            background: white;
+            color: #1B5E9E;
+            border: 2px solid #1B5E9E;
+        }
+        .btn-secondary:hover {
+            background: #1B5E9E;
+            color: white;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #1B5E9E 0%, #0F3C6E 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+        .hero-section h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        .hero-section p {
+            font-size: 20px;
+            opacity: 0.95;
+        }
+        .section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #1B5E9E;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .section p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 30px;
+        }
+        .feature-card {
+            background: #F4F7FB;
+            padding: 24px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        .feature-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1B5E9E;
+            margin-bottom: 12px;
+        }
+        .feature-desc {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #1B5E9E 0%, #0F3C6E 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .back-link a {
+            color: #1B5E9E;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gov-strip">
+        <div class="container">
+            <div>🇮🇳 Government of India | भारत सरकार</div>
+        </div>
+    </div>
+
+    <div class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <h1>🏛️ NAMMA SCHEMES</h1>
+                <p>Unified Government Welfare Portal</p>
+            </div>
+            <a href="index-new.html" class="btn btn-secondary">← BACK TO HOME</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="hero-section">
+            <h1>About Namma Schemes</h1>
+            <p>Empowering Citizens Through Technology & Accessibility</p>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Our Mission</h2>
+            <p>Namma Schemes is a unified government welfare platform designed to bridge the gap between citizens and government benefits. Unlike traditional portals like UMANG and National Portal of India that function as information repositories, our mission is to provide an <strong>AI-driven personalization layer</strong> that transforms how citizens discover and access welfare schemes.</p>
+            <p>Instead of requiring users to search manually through hundreds of schemes, our intelligent system proactively recommends relevant schemes, predicts eligibility with 92% accuracy, and simplifies complex legal descriptions into easy-to-understand language.</p>
+        </div>
+
+        <div class="section">
+            <h2>🤖 How We're Different from UMANG & National Portal</h2>
+            <p><strong>Traditional Portals (UMANG, National Portal):</strong> Centralized information repositories where users must manually search and read through scheme details.</p>
+            <p><strong>Namma Schemes (AI-Powered):</strong> Intelligent recommendation system that:</p>
+            <ul style="margin-left: 40px; line-height: 2; color: #555;">
+                <li>✅ <strong>Predicts eligibility</strong> using machine learning (92% accuracy)</li>
+                <li>✅ <strong>Ranks schemes</strong> based on probability of qualification</li>
+                <li>✅ <strong>Proactively recommends</strong> schemes without manual searching</li>
+                <li>✅ <strong>Voice-based interaction</strong> in Tamil & English for inclusive access</li>
+                <li>✅ <strong>Simplifies legal jargon</strong> into citizen-friendly language</li>
+                <li>✅ <strong>Personalized notifications</strong> for new matching schemes</li>
+                <li>✅ <strong>Missed benefits alerts</strong> to ensure no eligible citizen is left behind</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>✨ Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <div class="feature-title">AI Eligibility Prediction</div>
+                    <div class="feature-desc">Random Forest ML model with 92% accuracy predicts which schemes you qualify for</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title">Smart Ranking System</div>
+                    <div class="feature-desc">Schemes ranked by probability of eligibility - see your best matches first</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎤</div>
+                    <div class="feature-title">Voice Search (Tamil & English)</div>
+                    <div class="feature-desc">Speak naturally in your language - no typing needed for inclusive access</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <div class="feature-title">Proactive Recommendations</div>
+                    <div class="feature-desc">Get notified automatically when new schemes match your profile</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">Personalized Dashboard</div>
+                    <div class="feature-desc">Track applications and see schemes tailored specifically for you</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <div class="feature-title">Simplified Language</div>
+                    <div class="feature-desc">Complex legal terms converted to easy-to-understand descriptions</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📈 Platform Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Government Schemes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">92%</div>
+                    <div class="stat-label">ML Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Availability</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏆 Technology Stack</h2>
+            <p><strong>Frontend:</strong> HTML5, CSS3, JavaScript - Pure vanilla implementation for fast performance</p>
+            <p><strong>Backend:</strong> Python Flask - RESTful API architecture</p>
+            <p><strong>Database:</strong> SQLite - Persistent storage for schemes and user data</p>
+            <p><strong>Machine Learning:</strong> Random Forest Classifier with 92% accuracy for eligibility prediction and scheme ranking</p>
+            <p><strong>Voice Recognition:</strong> Web Speech API for Tamil (ta-IN) & English (en-IN) voice search</p>
+            <p><strong>AI Features:</strong> Personalized recommendation engine, probability-based ranking, and proactive notification system</p>
+        </div>
+
+        <div class="section">
+            <h2>🌟 Scheme Categories</h2>
+            <p>We cover 12 major categories of government welfare schemes:</p>
+            <p>📚 Education & Scholarships | 🏥 Health & Insurance | 🌾 Agriculture & Farming | 🏠 Housing & Urban Development | 👶 Women & Children Welfare | 💰 Pensions & Social Security | 🤝 Widow Welfare | 🏳️⚧️ Transgender Support | ♿ Disabled Persons Benefits | 👴 Senior Citizens Programs | 💼 Employment & Skills Development | 🕌 Minority Welfare</p>
+        </div>
+
+        <div class="section">
+            <h2>🎓 SDG Alignment</h2>
+            <p>Namma Schemes aligns with multiple UN Sustainable Development Goals:</p>
+            <p><strong>SDG 1:</strong> No Poverty - Connecting citizens to financial assistance schemes</p>
+            <p><strong>SDG 3:</strong> Good Health & Well-being - Health insurance and medical schemes</p>
+            <p><strong>SDG 4:</strong> Quality Education - Scholarship and education support programs</p>
+            <p><strong>SDG 10:</strong> Reduced Inequalities - Inclusive access for all demographics</p>
+            <p><strong>SDG 16:</strong> Peace, Justice & Strong Institutions - Transparent governance</p>
+        </div>
+
+        <div class="section">
+            <h2>📞 Contact & Support</h2>
+            <p><strong>Toll-Free Helpline:</strong> 1800-XXX-XXXX (Available 24/7)</p>
+            <p><strong>Email:</strong> support@nammaschemes.gov.in</p>
+            <p><strong>Grievance Redressal:</strong> grievance@nammaschemes.gov.in</p>
+            <p><strong>Technical Support:</strong> tech@nammaschemes.gov.in</p>
+        </div>
+
+        <div class="back-link">
+            <a href="index-new.html">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

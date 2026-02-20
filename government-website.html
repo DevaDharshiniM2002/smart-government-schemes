@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namma Schemes - AI-Powered Smart Government Scheme Assistant</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f9fafb; color: #111827; line-height: 1.6; }
+        
+        .gov-strip { background: linear-gradient(90deg, #FF9933 0%, #fff 50%, #138808 100%); height: 4px; }
+        .top-bar { background: #003d7a; color: white; padding: 10px 0; font-size: 13px; }
+        .top-bar .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+        .top-bar a { color: white; text-decoration: none; margin-left: 16px; }
+        
+        .navbar { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .navbar .container { max-width: 1200px; margin: 0 auto; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 800; color: #003d7a; }
+        .logo-icon { width: 48px; height: 48px; background: linear-gradient(135deg, #FF9933, #003d7a, #138808); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; }
+        .nav-links { display: flex; gap: 8px; list-style: none; }
+        .nav-links a { color: #374151; text-decoration: none; padding: 10px 18px; font-weight: 600; border-radius: 6px; transition: all 0.2s; }
+        .nav-links a:hover { background: #e0f2fe; color: #003d7a; }
+        .btn { padding: 12px 28px; border-radius: 8px; font-weight: 700; cursor: pointer; border: none; transition: all 0.3s; }
+        .btn-primary { background: #003d7a; color: white; }
+        .btn-primary:hover { background: #002952; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,61,122,0.3); }
+        
+        .hero { background: linear-gradient(135deg, #003d7a 0%, #001f3f 100%); color: white; padding: 100px 20px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="white" opacity="0.1"/></svg>'); opacity: 0.1; }
+        .hero .container { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+        .hero h1 { font-size: 52px; font-weight: 800; margin-bottom: 24px; line-height: 1.2; }
+        .hero p { font-size: 20px; margin-bottom: 40px; opacity: 0.95; }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn-hero { padding: 16px 36px; font-size: 16px; border-radius: 8px; font-weight: 700; cursor: pointer; border: none; transition: all 0.3s; }
+        .btn-orange { background: #FF9933; color: white; }
+        .btn-orange:hover { background: #e88a2e; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,153,51,0.4); }
+        .btn-white { background: white; color: #003d7a; }
+        .btn-white:hover { background: #f0f9ff; transform: translateY(-2px); }
+        
+        .section { padding: 80px 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 40px; font-weight: 800; color: #003d7a; text-align: center; margin-bottom: 16px; }
+        .section-subtitle { font-size: 18px; color: #6b7280; text-align: center; margin-bottom: 60px; }
+        
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; margin-bottom: 60px; }
+        .feature-card { background: white; padding: 36px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-left: 4px solid #FF9933; }
+        .feature-icon { font-size: 48px; margin-bottom: 16px; }
+        .feature-title { font-size: 22px; font-weight: 700; margin-bottom: 12px; color: #003d7a; }
+        .feature-desc { font-size: 16px; color: #4b5563; line-height: 1.7; }
+        
+        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+        .category-card { background: white; padding: 36px 24px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); text-align: center; border: 2px solid #e5e7eb; transition: all 0.3s; cursor: pointer; }
+        .category-card:hover { border-color: #003d7a; transform: translateY(-6px); box-shadow: 0 8px 24px rgba(0,61,122,0.15); }
+        .category-icon { font-size: 56px; margin-bottom: 16px; }
+        .category-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: #111827; }
+        .category-desc { font-size: 14px; color: #6b7280; line-height: 1.5; }
+        
+        .stats { background: linear-gradient(135deg, #003d7a 0%, #001f3f 100%); color: white; padding: 60px 20px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; text-align: center; }
+        .stat-number { font-size: 48px; font-weight: 800; color: #FF9933; margin-bottom: 8px; }
+        .stat-label { font-size: 16px; opacity: 0.9; }
+        
+        .footer { background: #1f2937; color: white; padding: 60px 20px 30px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #d1d5db; text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: #FF9933; }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid #374151; color: #9ca3af; font-size: 14px; }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 18px; }
+            .category-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+    <div class="gov-strip"></div>
+    <div class="top-bar">
+        <div class="container">
+            <div>🇮🇳 Government of India | भारत सरकार</div>
+            <div>
+                <a href="#">हिंदी</a>
+                <a href="#">English</a>
+                <a href="#">Screen Reader</a>
+            </div>
+        </div>
+    </div>
+    
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">🏛️</div>
+                <div>
+                    <div style="font-size: 24px;">Namma Schemes</div>
+                    <div style="font-size: 11px; font-weight: 500; color: #6b7280;">AI-Powered Scheme Assistant</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#schemes">Browse Schemes</a></li>
+                <li><a href="#eligibility">Check Eligibility</a></li>
+                <li><a href="#voice">🎤 Voice Search</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <button class="btn btn-primary">Search Schemes</button>
+        </div>
+    </nav>
+    
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Discover Government Schemes<br>Made for You</h1>
+            <p>AI-powered platform that intelligently matches you with relevant welfare schemes.<br>Get personalized recommendations and check eligibility instantly.</p>
+            <div class="hero-buttons">
+                <button class="btn-hero btn-orange">Explore Schemes →</button>
+                <button class="btn-hero btn-white">Check Eligibility</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">Why Namma Schemes is Different</h2>
+            <p class="section-subtitle">Unlike traditional portals, we use AI to personalize your experience</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">Smart Predictions</h3>
+                    <p class="feature-desc">AI analyzes your profile and predicts eligibility with 95% accuracy, ranking schemes by probability of approval.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎤</div>
+                    <h3 class="feature-title">Voice Assistance</h3>
+                    <p class="feature-desc">Search schemes using voice in multiple Indian languages. Perfect for rural areas and elderly citizens.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3 class="feature-title">Simplified Language</h3>
+                    <p class="feature-desc">Complex legal jargon converted to simple, easy-to-understand language that everyone can comprehend.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="schemes">
+        <div class="container">
+            <h2 class="section-title">Browse by Category</h2>
+            <p class="section-subtitle">Select your category to discover relevant government schemes and benefits</p>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">👩</div>
+                    <h3 class="category-title">Women & Widows</h3>
+                    <p class="category-desc">Welfare schemes for women empowerment and widow support</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🌾</div>
+                    <h3 class="category-title">Farmers</h3>
+                    <p class="category-desc">Agricultural subsidies, crop insurance, and farmer welfare</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🎓</div>
+                    <h3 class="category-title">Students</h3>
+                    <p class="category-desc">Scholarships, educational loans, and skill development</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">💼</div>
+                    <h3 class="category-title">Business & MSME</h3>
+                    <p class="category-desc">Startup funding, MSME loans, and entrepreneurship support</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">👴</div>
+                    <h3 class="category-title">Senior Citizens</h3>
+                    <p class="category-desc">Pension schemes and elderly care programs</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏳️⚧️</div>
+                    <h3 class="category-title">Transgender Welfare</h3>
+                    <p class="category-desc">Support programs for transgender community</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🤝</div>
+                    <h3 class="category-title">SC/ST Schemes</h3>
+                    <p class="category-desc">Reservation benefits and welfare for SC/ST communities</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">♿</div>
+                    <h3 class="category-title">Differently Abled</h3>
+                    <p class="category-desc">Disability benefits and accessibility support</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏥</div>
+                    <h3 class="category-title">Healthcare</h3>
+                    <p class="category-desc">Health insurance and medical assistance programs</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏠</div>
+                    <h3 class="category-title">Housing</h3>
+                    <p class="category-desc">Affordable housing and urban development schemes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Active Schemes</div>
+                </div>
+                <div>
+                    <div class="stat-number">10L+</div>
+                    <div class="stat-label">Citizens Helped</div>
+                </div>
+                <div>
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+                <div>
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">AI Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">Namma Schemes</h3>
+                    <p style="color: #d1d5db; line-height: 1.7;">AI-powered platform helping citizens discover and access government welfare schemes with personalized recommendations.</p>
+                </div>
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Browse Schemes</a></li>
+                        <li><a href="#">Check Eligibility</a></li>
+                        <li><a href="#">Voice Search</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Women & Widows</a></li>
+                        <li><a href="#">Farmers</a></li>
+                        <li><a href="#">Students</a></li>
+                        <li><a href="#">Healthcare</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-title">Support</h3>
+                    <ul class="footer-links">
+                        <li>📧 support@nammaschemes.gov.in</li>
+                        <li>📞 1800-XXX-XXXX (Toll Free)</li>
+                        <li>🕐 Mon-Fri: 9 AM - 6 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Namma Schemes. All rights reserved. | A Digital India Initiative</p>
+            </div>
+        </div>
+    </footer>
+    <div class="gov-strip"></div>
+</body>
+</html>

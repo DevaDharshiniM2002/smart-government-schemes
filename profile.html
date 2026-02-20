@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile - Namma Schemes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F4F7FB;
+            color: #222;
+        }
+        .gov-strip {
+            background: #0F3C6E;
+            color: white;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+        .gov-strip .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .main-header {
+            background: white;
+            border-bottom: 3px solid #1B5E9E;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-section h1 {
+            color: #1B5E9E;
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .logo-section p {
+            color: #666;
+            font-size: 14px;
+        }
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .user-info {
+            color: #1B5E9E;
+            font-weight: 600;
+        }
+        .btn {
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        .btn-secondary {
+            background: white;
+            color: #1B5E9E;
+            border: 2px solid #1B5E9E;
+        }
+        .btn-secondary:hover {
+            background: #1B5E9E;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .profile-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #1B5E9E;
+            margin-bottom: 24px;
+            font-size: 28px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #E0E0E0;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #1B5E9E;
+        }
+        .btn-primary {
+            width: 100%;
+            padding: 14px;
+            background: #1B5E9E;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .btn-primary:hover {
+            background: #0F3C6E;
+        }
+        .message {
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+        .success {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-link a {
+            color: #1B5E9E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="gov-strip">
+        <div class="container">
+            <div>🇮🇳 Government of India | भारत सरकार</div>
+        </div>
+    </div>
+
+    <div class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <h1>🏛️ NAMMA SCHEMES</h1>
+                <p>Unified Government Welfare Portal</p>
+            </div>
+            <div class="header-actions">
+                <span class="user-info">👤 <span id="userName"></span></span>
+                <button class="btn btn-secondary" onclick="logout()">🚪 LOGOUT</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="profile-card">
+            <h2>Update Profile</h2>
+            
+            <div id="message"></div>
+            
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" readonly style="background: #f5f5f5;">
+                </div>
+                
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" min="0" max="100">
+                </div>
+                
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender">
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="transgender">Transgender</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="income">Annual Income (₹)</label>
+                    <input type="number" id="income" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <select id="state">
+                        <option value="">Select State</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Delhi">Delhi</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-primary">Update Profile</button>
+            </form>
+            
+            <div class="back-link">
+                <a href="dashboard.html">← Back to Dashboard</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+        if (!currentUser) {
+            location.href = 'index-new.html';
+        } else {
+            document.getElementById('userName').textContent = currentUser.name;
+            document.getElementById('name').value = currentUser.name || '';
+            document.getElementById('email').value = currentUser.email || '';
+            document.getElementById('age').value = currentUser.age || '';
+            document.getElementById('gender').value = currentUser.gender || '';
+            document.getElementById('income').value = currentUser.income || '';
+            document.getElementById('state').value = currentUser.state || '';
+        }
+        
+        function logout() {
+            localStorage.removeItem('currentUser');
+            location.href = 'index-new.html';
+        }
+        
+        document.getElementById('profileForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const updatedUser = {
+                ...currentUser,
+                name: document.getElementById('name').value,
+                age: document.getElementById('age').value,
+                gender: document.getElementById('gender').value,
+                income: document.getElementById('income').value,
+                state: document.getElementById('state').value,
+                hasProfile: true
+            };
+            
+            const users = JSON.parse(localStorage.getItem('users') || '{}');
+            users[currentUser.email] = updatedUser;
+            localStorage.setItem('users', JSON.stringify(users));
+            localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+            
+            document.getElementById('message').innerHTML = '<div class="message success">✅ Profile updated successfully!</div>';
+            
+            setTimeout(() => {
+                location.href = 'dashboard.html';
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Required - Smart Government Scheme</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 { color: #667eea; margin-bottom: 10px; font-size: 32px; }
+        h2 { color: #333; margin: 30px 0 15px; font-size: 24px; }
+        p { color: #666; line-height: 1.6; margin-bottom: 15px; }
+        .step {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        .step h3 { color: #667eea; margin-bottom: 10px; font-size: 18px; }
+        code {
+            background: #2d3748;
+            color: #68d391;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        .command {
+            background: #2d3748;
+            color: #68d391;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        a:hover { text-decoration: underline; }
+        ul { margin-left: 20px; margin-bottom: 15px; }
+        li { margin: 8px 0; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Setup Required</h1>
+        <p>Welcome to Smart Government Scheme Platform! Before you can run the application, you need to complete the setup.</p>
+
+        <div class="warning">
+            <strong>⚠️ Node.js Not Found</strong>
+            <p>Node.js is required to run this application. Please install it first.</p>
+        </div>
+
+        <h2>Quick Setup (5 minutes)</h2>
+
+        <div class="step">
+            <h3>Step 1: Install Node.js</h3>
+            <p>Download and install Node.js from:</p>
+            <p><a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></p>
+            <p>Choose the <strong>LTS version</strong> (20.x or higher)</p>
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Verify Installation</h3>
+            <p>Open a new terminal and run:</p>
+            <div class="command">node --version<br>npm --version</div>
+            <p>You should see version numbers displayed.</p>
+        </div>
+
+        <div class="step">
+            <h3>Step 3: Install Dependencies</h3>
+            <p>In the project folder, run:</p>
+            <div class="command">npm install</div>
+        </div>
+
+        <div class="step">
+            <h3>Step 4: Generate Security Token</h3>
+            <div class="command">npm run generate:token</div>
+            <p>Copy the generated token.</p>
+        </div>
+
+        <div class="step">
+            <h3>Step 5: Configure Environment</h3>
+            <p>Create a <code>.env</code> file and add:</p>
+            <div class="command">NODE_ENV=development<br>PORT=3000<br>ADMIN_TOKEN=&lt;paste-your-token-here&gt;<br>ALLOWED_ORIGINS=http://localhost:5173</div>
+        </div>
+
+        <div class="step">
+            <h3>Step 6: Start the Application</h3>
+            <p>Open TWO terminals:</p>
+            <p><strong>Terminal 1 (Backend):</strong></p>
+            <div class="command">npm run dev:server</div>
+            <p><strong>Terminal 2 (Frontend):</strong></p>
+            <div class="command">npm run dev</div>
+        </div>
+
+        <div class="success">
+            <strong>✅ Ready!</strong>
+            <p>Once both servers are running, open:</p>
+            <p><a href="http://localhost:5173" target="_blank">http://localhost:5173</a></p>
+        </div>
+
+        <h2>Alternative: Use start.bat</h2>
+        <p>After installing Node.js and dependencies, simply double-click <code>start.bat</code> to run everything automatically.</p>
+
+        <h2>Need Help?</h2>
+        <ul>
+            <li>Check <code>SETUP.md</code> for detailed instructions</li>
+            <li>Check <code>README.md</code> for project overview</li>
+            <li>Ensure Node.js is installed: <code>node --version</code></li>
+        </ul>
+    </div>
+</body>
+</html>

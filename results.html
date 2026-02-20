@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eligibility Results - Namma Schemes</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .header { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); padding: 20px; color: white; }
+        .header-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .back-btn { background: white; color: #667eea; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
+        .results-header { background: white; padding: 40px; border-radius: 20px; margin-bottom: 30px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .results-icon { font-size: 4rem; margin-bottom: 15px; }
+        .results-title { font-size: 2.5rem; color: #667eea; font-weight: bold; margin-bottom: 10px; }
+        .results-desc { color: #666; font-size: 1.1rem; }
+        .user-info { background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); padding: 20px; border-radius: 15px; margin-bottom: 30px; color: white; }
+        .user-info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .user-info-item { text-align: center; }
+        .user-info-label { font-size: 0.9rem; opacity: 0.9; margin-bottom: 5px; }
+        .user-info-value { font-size: 1.3rem; font-weight: bold; }
+        .schemes { display: grid; gap: 25px; }
+        .scheme-card { background: white; padding: 30px; border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: all 0.3s; }
+        .scheme-card:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.15); transform: translateY(-3px); }
+        .scheme-title { font-size: 1.5rem; font-weight: bold; color: #667eea; margin-bottom: 15px; }
+        .scheme-summary { color: #555; margin-bottom: 20px; line-height: 1.7; font-size: 1rem; }
+        .scheme-section { margin: 20px 0; }
+        .scheme-section h3 { color: #333; font-size: 1.1rem; margin-bottom: 12px; }
+        .scheme-section ul { list-style: none; padding-left: 0; }
+        .scheme-section li { padding: 8px 0; color: #666; padding-left: 25px; position: relative; }
+        .scheme-section li:before { content: "✓"; position: absolute; left: 0; color: #4caf50; font-weight: bold; }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
+        .tag { background: linear-gradient(135deg, #667eea15, #764ba215); color: #667eea; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; border: 1px solid #667eea30; }
+        .apply-btn { background: #4caf50; color: white; padding: 12px 30px; border: none; border-radius: 25px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 15px; }
+        .apply-btn:hover { background: #45a049; }
+        .loading { text-align: center; padding: 60px; font-size: 1.3rem; color: white; }
+        .no-schemes { background: white; padding: 60px; border-radius: 20px; text-align: center; }
+        .no-schemes-icon { font-size: 4rem; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>🏛️ Namma Schemes</h1>
+            <a href="dashboard.html" class="back-btn">← Back to Dashboard</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="resultsHeader"></div>
+        <div id="userInfo"></div>
+        <div id="schemes"></div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        const age = urlParams.get('age');
+        const gender = urlParams.get('gender');
+        const city = urlParams.get('city');
+        const income = urlParams.get('income');
+
+        document.getElementById('resultsHeader').innerHTML = `
+            <div class="results-header">
+                <div class="results-icon">🎯</div>
+                <div class="results-title">Eligibility Results</div>
+                <div class="results-desc">Based on your information, here are the schemes you may be eligible for</div>
+            </div>
+        `;
+
+        let userInfoHTML = '<div class="user-info"><div class="user-info-grid">';
+        if (category) userInfoHTML += `<div class="user-info-item"><div class="user-info-label">Category</div><div class="user-info-value">${category}</div></div>`;
+        if (age) userInfoHTML += `<div class="user-info-item"><div class="user-info-label">Age</div><div class="user-info-value">${age} years</div></div>`;
+        if (gender) userInfoHTML += `<div class="user-info-item"><div class="user-info-label">Gender</div><div class="user-info-value">${gender}</div></div>`;
+        if (city) userInfoHTML += `<div class="user-info-item"><div class="user-info-label">City</div><div class="user-info-value">${city}</div></div>`;
+        if (income) userInfoHTML += `<div class="user-info-item"><div class="user-info-label">Annual Income</div><div class="user-info-value">₹${parseInt(income).toLocaleString()}</div></div>`;
+        userInfoHTML += '</div></div>';
+        document.getElementById('userInfo').innerHTML = userInfoHTML;
+
+        document.getElementById('schemes').innerHTML = '<div class="loading">🔄 Finding matching schemes...</div>';
+
+        const API_URL = 'http://127.0.0.1:8000/api';
+        
+        fetch(`${API_URL}/eligibility-check`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ category, age, gender, income, state: city })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (!data.schemes || data.schemes.length === 0) {
+                    document.getElementById('schemes').innerHTML = `
+                        <div class="no-schemes">
+                            <div class="no-schemes-icon">📭</div>
+                            <h2>No matching schemes found</h2>
+                            <p>Try adjusting your criteria or check other categories</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                document.getElementById('schemes').innerHTML = `
+                    <div class="schemes">
+                        ${data.schemes.map(scheme => `
+                            <div class="scheme-card">
+                                <div class="scheme-title">${scheme.name}</div>
+                                <div class="scheme-summary">${scheme.summary}</div>
+                                <div class="tags">${scheme.tags.map(tag => `<span class="tag">#${tag}</span>`).join('')}</div>
+                                
+                                ${scheme.eligibility && scheme.eligibility.length > 0 ? `
+                                    <div class="scheme-section">
+                                        <h3>📋 Eligibility Criteria</h3>
+                                        <ul>${scheme.eligibility.map(e => `<li>${e}</li>`).join('')}</ul>
+                                    </div>
+                                ` : ''}
+                                
+                                ${scheme.documents && scheme.documents.length > 0 ? `
+                                    <div class="scheme-section">
+                                        <h3>📄 Required Documents</h3>
+                                        <ul>${scheme.documents.map(d => `<li>${d}</li>`).join('')}</ul>
+                                    </div>
+                                ` : ''}
+                                
+                                ${scheme.apply_url ? `
+                                    <button class="apply-btn" onclick="window.open('${scheme.apply_url}', '_blank')">
+                                        Apply Now →
+                                    </button>
+                                ` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            })
+            .catch(() => {
+                document.getElementById('schemes').innerHTML = '<div class="no-schemes"><div class="no-schemes-icon">❌</div><h2>Error loading schemes</h2><p>Make sure backend is running on port 8000</p></div>';
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namma Schemes - Smart Government Scheme Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #F5F7FA;
+            color: #1A1A1A;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        
+        /* Top Government Strip */
+        .gov-strip {
+            background: linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+            height: 3px;
+        }
+        
+        .top-bar {
+            background: #0B3D91;
+            color: white;
+            padding: 8px 0;
+            font-size: 12px;
+        }
+        
+        .top-bar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 12px;
+            font-size: 11px;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 72px;
+        }
+        
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 22px;
+            font-weight: 800;
+            color: #0B3D91;
+        }
+        
+        .logo-icon { font-size: 32px; }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+        
+        .nav-links a {
+            color: #1A1A1A;
+            text-decoration: none;
+            padding: 10px 16px;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        
+        .nav-links a:hover {
+            background: #F0F4F8;
+            color: #0B3D91;
+        }
+        
+        .nav-links a.active {
+            background: #E8F4FD;
+            color: #0B3D91;
+            font-weight: 700;
+        }
+        
+        .nav-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        
+        .btn-primary {
+            background: #0B3D91;
+            color: white;
+            box-shadow: 0 2px 8px rgba(11,61,145,0.2);
+        }
+        
+        .btn-primary:hover {
+            background: #082C6C;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(11,61,145,0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #0B3D91;
+            border: 2px solid #0B3D91;
+        }
+        
+        .btn-secondary:hover {
+            background: #0B3D91;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0B3D91 0%, #082C6C 100%);
+            padding: 80px 20px;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-left h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .hero-left p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+        
+        .hero .btn {
+            padding: 14px 28px;
+            font-size: 15px;
+        }
+        
+        .btn-hero-primary {
+            background: #FF9933;
+            color: white;
+            box-shadow: 0 4px 12px rgba(255,153,51,0.3);
+        }
+        
+        .btn-hero-primary:hover {
+            background: #e88a2e;
+            transform: translateY(-2px);
+        }
+        
+        .btn-hero-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-hero-secondary:hover {
+            background: white;
+            color: #0B3D91;
+        }
+        
+        .trust-badges {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .hero-right {
+            text-align: center;
+            font-size: 120px;
+        }
+        
+        /* Categories Section */
+        .section {
+            padding: 80px 20px;
+        }
+        
+        .section-white {
+            background: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #0B3D91;
+            margin-bottom: 12px;
+        }
+        
+        .section-subtitle {
+            font-size: 16px;
+            color: #6B7280;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        
+        .category-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .category-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .category-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 8px;
+        }
+        
+        .category-desc {
+            font-size: 14px;
+            color: #6B7280;
+        }
+        
+        /* How It Works */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .step-card {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #0B3D91;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            margin: 0 auto 20px;
+        }
+        
+        .step-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 12px;
+        }
+        
+        .step-desc {
+            font-size: 14px;
+            color: #6B7280;
+        }
+        
+        /* Image Carousel */
+        .image-carousel {
+            background: white;
+            padding: 60px 0;
+            overflow: hidden;
+        }
+        
+        .carousel-track {
+            display: flex;
+            animation: scroll 40s linear infinite;
+            gap: 24px;
+        }
+        
+        .carousel-image {
+            min-width: 350px;
+            height: 240px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1A1A1A;
+            color: white;
+            padding: 60px 20px 20px;
+        }
+        
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer h3 {
+            color: #FF9933;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        .footer a {
+            color: #9CA3AF;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        
+        .footer a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid #374151;
+            padding-top: 20px;
+            text-align: center;
+            color: #9CA3AF;
+            font-size: 13px;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content { grid-template-columns: 1fr; }
+            .hero-right { display: none; }
+            .hero-left h1 { font-size: 32px; }
+            .category-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+        
+        /* Voice Search Styles */
+        .voice-search-section {
+            background: white;
+            padding: 60px 20px;
+        }
+        .voice-search-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .voice-search-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 800;
+            color: #0B3D91;
+            margin-bottom: 16px;
+        }
+        .voice-search-subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: #6B7280;
+            margin-bottom: 40px;
+        }
+        .search-wrapper {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 16px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        .search-wrapper:focus-within {
+            border-color: #0B3D91;
+            box-shadow: 0 4px 16px rgba(11,61,145,0.2);
+        }
+        .search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 18px;
+            padding: 8px;
+            color: #222;
+        }
+        .mic-button {
+            background: #0B3D91;
+            border: none;
+            cursor: pointer;
+            padding: 14px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            margin-left: 12px;
+        }
+        .mic-button:hover {
+            background: #082C6C;
+            transform: scale(1.05);
+        }
+        .mic-button.listening {
+            background: #FF4444;
+            animation: pulse 1.5s infinite;
+        }
+        .mic-icon {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,68,68,0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255,68,68,0); }
+        }
+        .voice-status {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #666;
+            min-height: 30px;
+            font-weight: 500;
+        }
+        .voice-status.listening {
+            color: #FF4444;
+            font-weight: 600;
+        }
+        .voice-status.error {
+            color: #C62828;
+        }
+        .voice-status.success {
+            color: #2E7D32;
+        }
+        .search-results {
+            margin-top: 40px;
+            display: none;
+        }
+        .search-results.active {
+            display: block;
+        }
+        .result-item {
+            background: white;
+            padding: 24px;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .result-item:hover {
+            border-color: #0B3D91;
+            box-shadow: 0 4px 12px rgba(11,61,145,0.15);
+            transform: translateY(-2px);
+        }
+        .result-icon {
+            font-size: 40px;
+        }
+        .result-content {
+            flex: 1;
+        }
+        .result-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0B3D91;
+            margin-bottom: 6px;
+        }
+        .result-desc {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="gov-strip"></div>
+    
+    <div class="top-bar">
+        <div class="container">
+            <div>🇮🇳 Government of India | भारत सरकार</div>
+            <div>
+                <a href="#">A+</a>
+                <a href="#">A</a>
+                <a href="#">A-</a>
+                <a href="#">English</a>
+                <a href="#">தமிழ்</a>
+                <a href="#">हिंदी</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="logo">
+                <span class="logo-icon">🏛️</span>
+                <span>NAMMA SCHEMES</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#schemes" class="nav-link">Schemes</a></li>
+                <li><a href="#eligibility" class="nav-link">Eligibility</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="btn btn-secondary" onclick="location.href='login.html'">Login</button>
+                <button class="btn btn-primary" onclick="location.href='register.html'">Register</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-left">
+                <h1>Smart Government Scheme Assistant</h1>
+                <p>Discover the right government schemes instantly. AI-powered eligibility prediction and personalized recommendations.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-hero-primary" onclick="checkLogin('eligibility.html')">Check Eligibility</button>
+                    <button class="btn btn-hero-secondary" onclick="location.href='#schemes'">Explore All Schemes</button>
+                </div>
+                <div class="trust-badges">
+                    <div class="trust-badge">✔ AI Powered</div>
+                    <div class="trust-badge">✔ Secure</div>
+                    <div class="trust-badge">✔ Verified Data</div>
+                </div>
+            </div>
+            <div class="hero-right">
+                🤖
+            </div>
+        </div>
+    </section>
+
+    <section class="voice-search-section">
+        <div class="voice-search-container">
+            <h2 class="voice-search-title">🎤 Voice Search</h2>
+            <p class="voice-search-subtitle">Speak to find schemes - Available in English & Tamil</p>
+            
+            <div class="search-wrapper">
+                <input type="text" class="search-input" id="searchInput" placeholder="Click microphone and speak or type to search...">
+                <button class="mic-button" id="micButton" title="Voice Search">
+                    <svg class="mic-icon" viewBox="0 0 24 24">
+                        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                        <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="voice-status" id="voiceStatus"></div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </section>
+
+    <section class="section" id="schemes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Browse by Category</h2>
+                <p class="section-subtitle">Select your category to discover relevant schemes</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="category-card" onclick="checkLogin('category.html?category=education')">
+                    <div class="category-icon">🎓</div>
+                    <h3 class="category-title">Students</h3>
+                    <p class="category-desc">Scholarships and education support</p>
+                </div>
+                
+                <div class="category-card" onclick="checkLogin('category.html?category=agriculture')">
+                    <div class="category-icon">🌾</div>
+                    <h3 class="category-title">Farmers</h3>
+                    <p class="category-desc">Agricultural subsidies and support</p>
+                </div>
+                
+                <div class="category-card" onclick="checkLogin('category.html?category=women')">
+                    <div class="category-icon">👩</div>
+                    <h3 class="category-title">Women & Widows</h3>
+                    <p class="category-desc">Empowerment and welfare schemes</p>
+                </div>
+                
+                <div class="category-card" onclick="checkLogin('category.html?category=senior')">
+                    <div class="category-icon">👴</div>
+                    <h3 class="category-title">Senior Citizens</h3>
+                    <p class="category-desc">Pension and elderly care</p>
+                </div>
+                
+                <div class="category-card" onclick="checkLogin('category.html?category=employment')">
+                    <div class="category-icon">🏢</div>
+                    <h3 class="category-title">Business & MSME</h3>
+                    <p class="category-desc">Small business funding</p>
+                </div>
+                
+                <div class="category-card" onclick="checkLogin('category.html?category=health')">
+                    <div class="category-icon">🏥</div>
+                    <h3 class="category-title">Healthcare</h3>
+                    <p class="category-desc">Medical insurance and care</p>
+                </div>
+                
+                <div class="category-card" onclick="checkLogin('category.html?category=housing')">
+                    <div class="category-icon">🏠</div>
+                    <h3 class="category-title">Housing</h3>
+                    <p class="category-desc">Affordable housing schemes</p>
+                </div>
+                
+                <div class="category-card" onclick="checkLogin('category.html?category=transgender')">
+                    <div class="category-icon">🏳️⚧️</div>
+                    <h3 class="category-title">Transgender Welfare</h3>
+                    <p class="category-desc">Support and empowerment</p>
+                </div>
+                
+                <div class="category-card" onclick="checkLogin('category.html?category=disabled')">
+                    <div class="category-icon">♿</div>
+                    <h3 class="category-title">Differently Abled</h3>
+                    <p class="category-desc">Disability benefits and support</p>
+                </div>
+                
+                <div class="category-card" onclick="checkLogin('category.html?category=minority')">
+                    <div class="category-icon">🕌</div>
+                    <h3 class="category-title">SC/ST Schemes</h3>
+                    <p class="category-desc">Reservation and welfare</p>
+                </div>
+                
+                <div class="category-card" onclick="checkLogin('category.html?category=pensions')">
+                    <div class="category-icon">💰</div>
+                    <h3 class="category-title">Pensions</h3>
+                    <p class="category-desc">Social security benefits</p>
+                </div>
+                
+                <div class="category-card" onclick="checkLogin('category.html?category=employment')">
+                    <div class="category-icon">💼</div>
+                    <h3 class="category-title">Employment</h3>
+                    <p class="category-desc">Job and skill development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="image-carousel">
+        <div class="carousel-track">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=350&h=240&fit=crop" alt="Education" class="carousel-image">
+            <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=350&h=240&fit=crop" alt="Healthcare" class="carousel-image">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=350&h=240&fit=crop" alt="Agriculture" class="carousel-image">
+            <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=350&h=240&fit=crop" alt="Housing" class="carousel-image">
+            <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=350&h=240&fit=crop" alt="Women" class="carousel-image">
+            <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=350&h=240&fit=crop" alt="Pension" class="carousel-image">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=350&h=240&fit=crop" alt="Education" class="carousel-image">
+            <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=350&h=240&fit=crop" alt="Healthcare" class="carousel-image">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=350&h=240&fit=crop" alt="Agriculture" class="carousel-image">
+            <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?w=350&h=240&fit=crop" alt="Housing" class="carousel-image">
+        </div>
+    </div>
+
+    <section class="section section-white" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Namma Schemes</h2>
+                <p class="section-subtitle">AI-Powered Smart Government Scheme Assistant</p>
+            </div>
+            
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 18px; color: #1A1A1A; margin-bottom: 30px; line-height: 1.8;">
+                    Namma Schemes is a unified government welfare platform designed to bridge the gap between citizens and government benefits. Unlike traditional portals like UMANG and National Portal of India that function as information repositories, we provide an <strong>AI-driven personalization layer</strong> that transforms how citizens discover and access welfare schemes.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: 15px;">🎯</div>
+                        <h3 style="font-size: 20px; font-weight: 700; color: #0B3D91; margin-bottom: 10px;">AI Prediction</h3>
+                        <p style="font-size: 14px; color: #6B7280;">AI-powered eligibility prediction using Random Forest ML model</p>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: 15px;">🔔</div>
+                        <h3 style="font-size: 20px; font-weight: 700; color: #0B3D91; margin-bottom: 10px;">Proactive Alerts</h3>
+                        <p style="font-size: 14px; color: #6B7280;">Automatic notifications for matching schemes based on your profile</p>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: 15px;">🎤</div>
+                        <h3 style="font-size: 20px; font-weight: 700; color: #0B3D91; margin-bottom: 10px;">Voice Search</h3>
+                        <p style="font-size: 14px; color: #6B7280;">Speak naturally in Tamil or English for inclusive access</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 50px; padding: 30px; background: #F0F4F8; border-radius: 12px;">
+                    <h3 style="font-size: 22px; font-weight: 700; color: #0B3D91; margin-bottom: 15px;">Our Difference</h3>
+                    <p style="font-size: 16px; color: #1A1A1A; line-height: 1.8;">
+                        Instead of requiring users to search manually through hundreds of schemes, our intelligent system <strong>proactively recommends</strong> relevant schemes, <strong>predicts eligibility</strong> with machine learning, <strong>ranks schemes by probability</strong>, and <strong>simplifies complex legal descriptions</strong> into easy-to-understand language. We ensure inclusive and intelligent access to welfare benefits for every citizen.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="eligibility">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Get personalized scheme recommendations in 3 simple steps</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Enter Your Details</h3>
+                    <p class="step-desc">Provide basic information about age, income, category, and location</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">AI Predicts Eligibility</h3>
+                    <p class="step-desc">Our ML model analyzes your profile and predicts eligibility</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Get Personalized List</h3>
+                    <p class="step-desc">Receive ranked schemes based on probability of eligibility</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h3>About</h3>
+                <a href="about.html">About Us</a>
+                <a href="#">How It Works</a>
+                <a href="#">AI Technology</a>
+                <a href="#">Data Sources</a>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <a href="#">Helpline: 1800-XXX-XXXX</a>
+                <a href="#">Email: support@nammaschemes.gov.in</a>
+                <a href="#">Grievance Redressal</a>
+                <a href="#">Feedback</a>
+            </div>
+            <div>
+                <h3>Legal</h3>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Disclaimer</a>
+                <a href="#">Accessibility</a>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <a href="#schemes">All Schemes</a>
+                <a href="eligibility.html">Check Eligibility</a>
+                <a href="notifications.html">Notifications</a>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 Namma Schemes - Smart Government Scheme Assistant | Developed for Digital India
+        </div>
+    </footer>
+
+    <script>
+        function checkLogin(url) {
+            const user = JSON.parse(localStorage.getItem('currentUser') || 'null');
+            if (!user) {
+                alert('⚠️ Please login or register to access this service');
+                location.href = 'login.html';
+            } else {
+                location.href = url;
+            }
+        }
+        
+        const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+        if (currentUser) {
+            location.href = 'dashboard.html';
+        }
+        
+        // Smooth scroll and active nav highlighting
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+        
+        function setActiveNav() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', setActiveNav);
+        setActiveNav();
+
+        // Voice Search Implementation
+        const micButton = document.getElementById('micButton');
+        const searchInput = document.getElementById('searchInput');
+        const voiceStatus = document.getElementById('voiceStatus');
+        const searchResults = document.getElementById('searchResults');
+        
+        let recognition = null;
+        let isListening = false;
+
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = true;
+            recognition.lang = 'en-IN';
+
+            recognition.onstart = () => {
+                isListening = true;
+                micButton.classList.add('listening');
+                voiceStatus.textContent = '🎤 Listening... Speak now';
+                voiceStatus.className = 'voice-status listening';
+            };
+
+            recognition.onresult = (event) => {
+                let transcript = '';
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    transcript += event.results[i][0].transcript;
+                }
+                searchInput.value = transcript;
+                if (event.results[0].isFinal) {
+                    performSearch(transcript);
+                }
+            };
+
+            recognition.onend = () => {
+                isListening = false;
+                micButton.classList.remove('listening');
+            };
+
+            recognition.onerror = (event) => {
+                isListening = false;
+                micButton.classList.remove('listening');
+                if (event.error === 'not-allowed') {
+                    voiceStatus.textContent = '❌ Microphone access denied. Enable in browser settings.';
+                } else if (event.error === 'no-speech') {
+                    voiceStatus.textContent = '⚠️ No speech detected. Try again.';
+                } else {
+                    voiceStatus.textContent = '❌ Error: ' + event.error;
+                }
+                voiceStatus.className = 'voice-status error';
+                setTimeout(() => {
+                    voiceStatus.textContent = '';
+                    voiceStatus.className = 'voice-status';
+                }, 3000);
+            };
+        }
+
+        if (micButton) {
+            micButton.addEventListener('click', () => {
+                if (!recognition) {
+                    voiceStatus.textContent = '❌ Voice search not supported. Use Chrome or Edge.';
+                    voiceStatus.className = 'voice-status error';
+                    return;
+                }
+                if (isListening) {
+                    recognition.stop();
+                } else {
+                    try {
+                        recognition.start();
+                    } catch (e) {
+                        console.error('Recognition error:', e);
+                    }
+                }
+            });
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    performSearch(searchInput.value);
+                }
+            });
+        }
+
+        function performSearch(query) {
+            if (!query.trim()) return;
+
+            voiceStatus.textContent = '🔍 Searching for: "' + query + '"';
+            voiceStatus.className = 'voice-status';
+
+            const categories = [
+                { name: 'Students', icon: '🎓', url: 'category.html?category=education', keywords: ['education', 'scholarship', 'student', 'school', 'college', 'study', 'kalvi'] },
+                { name: 'Farmers', icon: '🌾', url: 'category.html?category=agriculture', keywords: ['agriculture', 'farming', 'farmer', 'crop', 'land', 'kisan', 'vivasayi'] },
+                { name: 'Women & Widows', icon: '👩', url: 'category.html?category=women', keywords: ['women', 'child', 'mother', 'maternity', 'girl', 'mahila', 'widow', 'penn'] },
+                { name: 'Senior Citizens', icon: '👴', url: 'category.html?category=senior', keywords: ['senior', 'elderly', 'old', 'aged', 'retirement', 'pension', 'muppar'] },
+                { name: 'Business & MSME', icon: '🏢', url: 'category.html?category=employment', keywords: ['business', 'msme', 'employment', 'job', 'skill', 'training', 'work', 'velai'] },
+                { name: 'Healthcare', icon: '🏥', url: 'category.html?category=health', keywords: ['health', 'medical', 'insurance', 'hospital', 'doctor', 'treatment', 'arogya'] },
+                { name: 'Housing', icon: '🏠', url: 'category.html?category=housing', keywords: ['housing', 'home', 'house', 'urban', 'property', 'awas', 'veedu'] },
+                { name: 'Transgender Welfare', icon: '🏳️⚧️', url: 'category.html?category=transgender', keywords: ['transgender', 'lgbtq', 'trans', 'third gender'] },
+                { name: 'Differently Abled', icon: '♿', url: 'category.html?category=disabled', keywords: ['disabled', 'disability', 'handicapped', 'differently abled', 'divyang'] },
+                { name: 'SC/ST Schemes', icon: '🕌', url: 'category.html?category=minority', keywords: ['minority', 'sc', 'st', 'obc', 'scheduled caste', 'scheduled tribe'] },
+                { name: 'Pensions', icon: '💰', url: 'category.html?category=pensions', keywords: ['pension', 'social security', 'retirement', 'old age'] },
+                { name: 'Employment', icon: '💼', url: 'category.html?category=employment', keywords: ['employment', 'job', 'career', 'work'] }
+            ];
+
+            const queryLower = query.toLowerCase();
+            const matches = categories.filter(cat => 
+                cat.keywords.some(keyword => queryLower.includes(keyword)) ||
+                cat.name.toLowerCase().includes(queryLower)
+            );
+
+            if (matches.length > 0) {
+                searchResults.innerHTML = matches.map(cat => `
+                    <div class="result-item" onclick="checkLogin('${cat.url}')">
+                        <div class="result-icon">${cat.icon}</div>
+                        <div class="result-content">
+                            <div class="result-title">${cat.name}</div>
+                            <div class="result-desc">Click to view all schemes in this category</div>
+                        </div>
+                    </div>
+                `).join('');
+                searchResults.classList.add('active');
+                voiceStatus.textContent = `✅ Found ${matches.length} matching categor${matches.length > 1 ? 'ies' : 'y'}`;
+                voiceStatus.className = 'voice-status success';
+            } else {
+                searchResults.innerHTML = `
+                    <div class="result-item">
+                        <div class="result-icon">⚠️</div>
+                        <div class="result-content">
+                            <div class="result-title">No Results Found</div>
+                            <div class="result-desc">Try: education, health, agriculture, housing, pension, employment</div>
+                        </div>
+                    </div>
+                `;
+                searchResults.classList.add('active');
+                voiceStatus.textContent = '⚠️ No matching schemes found';
+                voiceStatus.className = 'voice-status error';
+            }
+
+            setTimeout(() => {
+                voiceStatus.textContent = '';
+                voiceStatus.className = 'voice-status';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

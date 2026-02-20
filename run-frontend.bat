@@ -1,0 +1,3 @@
+@echo off
+echo Starting Frontend Server...
+python -m http.server 5173

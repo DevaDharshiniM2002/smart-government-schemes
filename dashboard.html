@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Namma Schemes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F4F7FB;
+            color: #222;
+        }
+        .gov-strip {
+            background: #0B3D91;
+            color: white;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+        .gov-strip .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .main-header {
+            background: white;
+            border-bottom: 3px solid #0B3D91;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-section h1 {
+            color: #0B3D91;
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .logo-section p {
+            color: #666;
+            font-size: 14px;
+        }
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .user-info {
+            color: #0B3D91;
+            font-weight: 600;
+        }
+        .btn {
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background: #0B3D91;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #082C6C;
+        }
+        .btn-secondary {
+            background: white;
+            color: #0B3D91;
+            border: 2px solid #0B3D91;
+        }
+        .btn-secondary:hover {
+            background: #0B3D91;
+            color: white;
+        }
+        .nav-bar {
+            background: #0B3D91;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .nav-menu {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        .nav-menu a {
+            display: block;
+            color: white;
+            padding: 16px 24px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        .nav-menu a:hover, .nav-menu a.active {
+            background: rgba(255,255,255,0.1);
+            border-bottom-color: white;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .notification-banner {
+            background: #FFF9E6;
+            border: 2px solid #FF9933;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .notification-banner .icon {
+            font-size: 32px;
+        }
+        .notification-banner .content h3 {
+            color: #0B3D91;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .notification-banner .content p {
+            color: #666;
+            font-size: 14px;
+        }
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0B3D91;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .category-card {
+            background: white;
+            padding: 32px 24px;
+            text-align: center;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .category-card:hover {
+            border-color: #0B3D91;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+        .category-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        .category-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 12px;
+        }
+        .category-card .btn {
+            width: 100%;
+            margin-top: 12px;
+        }
+        .quick-actions {
+            background: white;
+            padding: 32px;
+            border-radius: 8px;
+            border: 1px solid #E0E0E0;
+            margin-bottom: 40px;
+        }
+        .quick-actions h2 {
+            color: #0B3D91;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .voice-search-container {
+            max-width: 600px;
+            margin: 30px auto;
+            position: relative;
+        }
+        .search-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            transition: all 0.3s;
+        }
+        .search-wrapper:focus-within {
+            border-color: #0B3D91;
+            box-shadow: 0 0 0 3px rgba(11,61,145,0.1);
+        }
+        .search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            padding: 8px;
+            color: #222;
+        }
+        .mic-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            border-radius: 50%;
+        }
+        .mic-button:hover {
+            background: #F0F4F8;
+        }
+        .mic-button.listening {
+            background: #FF4444;
+            animation: pulse 1.5s infinite;
+        }
+        .mic-icon {
+            width: 24px;
+            height: 24px;
+            fill: #0B3D91;
+        }
+        .mic-button.listening .mic-icon {
+            fill: white;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .voice-status {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 14px;
+            color: #666;
+            min-height: 20px;
+        }
+        .voice-status.listening {
+            color: #FF4444;
+            font-weight: 600;
+        }
+        .voice-status.error {
+            color: #C62828;
+        }
+        .search-results {
+            margin-top: 30px;
+            display: none;
+        }
+        .search-results.active {
+            display: block;
+        }
+        .result-item {
+            background: white;
+            padding: 20px;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .result-item:hover {
+            border-color: #0B3D91;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .result-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #0B3D91;
+            margin-bottom: 8px;
+        }
+        .result-desc {
+            font-size: 14px;
+            color: #666;
+        }
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .action-btn {
+            padding: 20px;
+            background: #F4F7FB;
+            border: 2px solid #0B3D91;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .action-btn:hover {
+            background: #0B3D91;
+            color: white;
+        }
+        .action-btn .icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        .action-btn .label {
+            font-weight: 600;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gov-strip">
+        <div class="container">
+            <div>🇮🇳 Government of India | भारत सरकार</div>
+        </div>
+    </div>
+
+    <div class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <h1>🏛️ NAMMA SCHEMES</h1>
+                <p>Unified Government Welfare Portal</p>
+            </div>
+            <div class="header-actions">
+                <span class="user-info">👤 <span id="userName"></span></span>
+                <button class="btn btn-secondary" onclick="logout()">🚪 LOGOUT</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="nav-bar">
+        <ul class="nav-menu">
+            <li><a href="dashboard.html" class="active">🏠 DASHBOARD</a></li>
+            <li><a href="#schemes">📜 ALL SCHEMES</a></li>
+            <li><a href="eligibility.html">✅ CHECK ELIGIBILITY</a></li>
+            <li><a href="notifications.html">🔔 NOTIFICATIONS</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="notification-banner" id="notificationBanner">
+            <div class="icon">🔔</div>
+            <div class="content">
+                <h3>New Scheme Recommendations Available!</h3>
+                <p>Based on your profile, we found <span id="schemeCount">5</span> schemes you may be eligible for. <a href="notifications.html" style="color: #0B3D91; font-weight: 600;">View All →</a></p>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <h2>Quick Actions</h2>
+            <div class="action-buttons">
+                <div class="action-btn" onclick="location.href='eligibility.html'">
+                    <div class="icon">✅</div>
+                    <div class="label">Check Eligibility</div>
+                </div>
+                <div class="action-btn" onclick="location.href='notifications.html'">
+                    <div class="icon">🔔</div>
+                    <div class="label">View Notifications</div>
+                </div>
+                <div class="action-btn" onclick="location.href='profile.html'">
+                    <div class="icon">👤</div>
+                    <div class="label">Update Profile</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <h2>🎤 Voice Search - Find Schemes</h2>
+            <div class="voice-search-container">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search for schemes or click mic to speak...">
+                    <button class="mic-button" id="micButton" title="Voice Search">
+                        <svg class="mic-icon" viewBox="0 0 24 24">
+                            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                            <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="voice-status" id="voiceStatus"></div>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+
+        <h2 class="section-title" id="schemes">Browse Schemes by Category</h2>
+        
+        <div class="category-grid">
+            <div class="category-card" onclick="location.href='category.html?category=education'">
+                <div class="category-icon">📚</div>
+                <div class="category-title">Education & Scholarships</div>
+                <button class="btn btn-secondary">VIEW SCHEMES</button>
+            </div>
+            
+            <div class="category-card" onclick="location.href='category.html?category=health'">
+                <div class="category-icon">🏥</div>
+                <div class="category-title">Health & Insurance</div>
+                <button class="btn btn-secondary">VIEW SCHEMES</button>
+            </div>
+            
+            <div class="category-card" onclick="location.href='category.html?category=agriculture'">
+                <div class="category-icon">🌾</div>
+                <div class="category-title">Agriculture & Farming</div>
+                <button class="btn btn-secondary">VIEW SCHEMES</button>
+            </div>
+            
+            <div class="category-card" onclick="location.href='category.html?category=housing'">
+                <div class="category-icon">🏠</div>
+                <div class="category-title">Housing & Urban</div>
+                <button class="btn btn-secondary">VIEW SCHEMES</button>
+            </div>
+            
+            <div class="category-card" onclick="location.href='category.html?category=women'">
+                <div class="category-icon">👶</div>
+                <div class="category-title">Women & Children</div>
+                <button class="btn btn-secondary">VIEW SCHEMES</button>
+            </div>
+            
+            <div class="category-card" onclick="location.href='category.html?category=pensions'">
+                <div class="category-icon">💰</div>
+                <div class="category-title">Pensions & Social Security</div>
+                <button class="btn btn-secondary">VIEW SCHEMES</button>
+            </div>
+            
+            <div class="category-card" onclick="location.href='category.html?category=widow'">
+                <div class="category-icon">🤝</div>
+                <div class="category-title">Widow Welfare</div>
+                <button class="btn btn-secondary">VIEW SCHEMES</button>
+            </div>
+            
+            <div class="category-card" onclick="location.href='category.html?category=transgender'">
+                <div class="category-icon">🏳️⚧️</div>
+                <div class="category-title">Transgender Support</div>
+                <button class="btn btn-secondary">VIEW SCHEMES</button>
+            </div>
+            
+            <div class="category-card" onclick="location.href='category.html?category=disabled'">
+                <div class="category-icon">♿</div>
+                <div class="category-title">Disabled Persons</div>
+                <button class="btn btn-secondary">VIEW SCHEMES</button>
+            </div>
+            
+            <div class="category-card" onclick="location.href='category.html?category=senior'">
+                <div class="category-icon">👴</div>
+                <div class="category-title">Senior Citizens</div>
+                <button class="btn btn-secondary">VIEW SCHEMES</button>
+            </div>
+            
+            <div class="category-card" onclick="location.href='category.html?category=employment'">
+                <div class="category-icon">💼</div>
+                <div class="category-title">Employment & Skills</div>
+                <button class="btn btn-secondary">VIEW SCHEMES</button>
+            </div>
+            
+            <div class="category-card" onclick="location.href='category.html?category=minority'">
+                <div class="category-icon">🕌</div>
+                <div class="category-title">Minority Welfare</div>
+                <button class="btn btn-secondary">VIEW SCHEMES</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+        if (!currentUser) {
+            location.href = 'index-new.html';
+        } else {
+            document.getElementById('userName').textContent = currentUser.name;
+        }
+        
+        function logout() {
+            localStorage.removeItem('currentUser');
+            location.href = 'index-new.html';
+        }
+
+        // Voice Search Implementation
+        const micButton = document.getElementById('micButton');
+        const searchInput = document.getElementById('searchInput');
+        const voiceStatus = document.getElementById('voiceStatus');
+        const searchResults = document.getElementById('searchResults');
+        
+        let recognition = null;
+        let isListening = false;
+
+        // Check browser support
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = true;
+            recognition.lang = 'en-IN';
+
+            recognition.onstart = () => {
+                isListening = true;
+                micButton.classList.add('listening');
+                voiceStatus.textContent = '🎤 Listening... Speak now';
+                voiceStatus.className = 'voice-status listening';
+            };
+
+            recognition.onresult = (event) => {
+                let transcript = '';
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    transcript += event.results[i][0].transcript;
+                }
+                searchInput.value = transcript;
+                if (event.results[0].isFinal) {
+                    performSearch(transcript);
+                }
+            };
+
+            recognition.onend = () => {
+                isListening = false;
+                micButton.classList.remove('listening');
+                voiceStatus.textContent = '';
+                voiceStatus.className = 'voice-status';
+            };
+
+            recognition.onerror = (event) => {
+                isListening = false;
+                micButton.classList.remove('listening');
+                if (event.error === 'not-allowed') {
+                    voiceStatus.textContent = '❌ Microphone access denied. Please enable it in browser settings.';
+                } else if (event.error === 'no-speech') {
+                    voiceStatus.textContent = '⚠️ No speech detected. Please try again.';
+                } else {
+                    voiceStatus.textContent = '❌ Error: ' + event.error;
+                }
+                voiceStatus.className = 'voice-status error';
+                setTimeout(() => {
+                    voiceStatus.textContent = '';
+                    voiceStatus.className = 'voice-status';
+                }, 3000);
+            };
+        }
+
+        micButton.addEventListener('click', () => {
+            if (!recognition) {
+                voiceStatus.textContent = '❌ Voice search not supported in this browser. Please use Chrome or Edge.';
+                voiceStatus.className = 'voice-status error';
+                return;
+            }
+
+            if (isListening) {
+                recognition.stop();
+            } else {
+                recognition.start();
+            }
+        });
+
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch(searchInput.value);
+            }
+        });
+
+        function performSearch(query) {
+            if (!query.trim()) return;
+
+            voiceStatus.textContent = '🔍 Searching for: "' + query + '"';
+            voiceStatus.className = 'voice-status';
+
+            // Simulate search with category matching
+            const categories = [
+                { name: 'Education & Scholarships', icon: '📚', url: 'category.html?category=education', keywords: ['education', 'scholarship', 'student', 'school', 'college', 'study'] },
+                { name: 'Health & Insurance', icon: '🏥', url: 'category.html?category=health', keywords: ['health', 'medical', 'insurance', 'hospital', 'doctor', 'treatment'] },
+                { name: 'Agriculture & Farming', icon: '🌾', url: 'category.html?category=agriculture', keywords: ['agriculture', 'farming', 'farmer', 'crop', 'land', 'kisan'] },
+                { name: 'Housing & Urban', icon: '🏠', url: 'category.html?category=housing', keywords: ['housing', 'home', 'house', 'urban', 'property', 'awas'] },
+                { name: 'Women & Children', icon: '👶', url: 'category.html?category=women', keywords: ['women', 'child', 'mother', 'maternity', 'girl', 'mahila'] },
+                { name: 'Pensions & Social Security', icon: '💰', url: 'category.html?category=pensions', keywords: ['pension', 'social security', 'retirement', 'elderly', 'old age'] },
+                { name: 'Senior Citizens', icon: '👴', url: 'category.html?category=senior', keywords: ['senior', 'elderly', 'old', 'aged', 'retirement'] },
+                { name: 'Employment & Skills', icon: '💼', url: 'category.html?category=employment', keywords: ['employment', 'job', 'skill', 'training', 'work', 'career'] },
+                { name: 'Disabled Persons', icon: '♿', url: 'category.html?category=disabled', keywords: ['disabled', 'disability', 'handicapped', 'differently abled', 'divyang'] },
+                { name: 'Transgender Support', icon: '🏳️‍⚧️', url: 'category.html?category=transgender', keywords: ['transgender', 'lgbtq', 'trans', 'third gender'] },
+                { name: 'Widow Welfare', icon: '🤝', url: 'category.html?category=widow', keywords: ['widow', 'vidhwa', 'single woman'] },
+                { name: 'Minority Welfare', icon: '🕌', url: 'category.html?category=minority', keywords: ['minority', 'sc', 'st', 'obc', 'scheduled caste', 'scheduled tribe'] }
+            ];
+
+            const queryLower = query.toLowerCase();
+            const matches = categories.filter(cat => 
+                cat.keywords.some(keyword => queryLower.includes(keyword)) ||
+                cat.name.toLowerCase().includes(queryLower)
+            );
+
+            if (matches.length > 0) {
+                searchResults.innerHTML = matches.map(cat => `
+                    <div class="result-item" onclick="location.href='${cat.url}'">
+                        <div class="result-title">${cat.icon} ${cat.name}</div>
+                        <div class="result-desc">Click to view all schemes in this category</div>
+                    </div>
+                `).join('');
+                searchResults.classList.add('active');
+                voiceStatus.textContent = `✅ Found ${matches.length} matching categor${matches.length > 1 ? 'ies' : 'y'}`;
+            } else {
+                searchResults.innerHTML = `
+                    <div class="result-item">
+                        <div class="result-title">⚠️ No Results Found</div>
+                        <div class="result-desc">Try searching for: education, health, agriculture, housing, pension, employment, etc.</div>
+                    </div>
+                `;
+                searchResults.classList.add('active');
+                voiceStatus.textContent = '⚠️ No matching schemes found';
+            }
+
+            setTimeout(() => {
+                voiceStatus.textContent = '';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

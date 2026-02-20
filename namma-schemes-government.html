@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namma Schemes - AI-Powered Smart Government Scheme Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Top Government Stripe -->
+    <div class="h-1 bg-gradient-to-r from-orange-500 via-white to-green-600"></div>
+    
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div class="container mx-auto px-4">
+            <!-- Top Info Bar -->
+            <div class="hidden md:flex items-center justify-between py-2 text-xs border-b border-gray-100">
+                <div class="flex items-center gap-6 text-gray-600">
+                    <span>🇮🇳 Government of India</span>
+                    <span>|</span>
+                    <span>भारत सरकार</span>
+                </div>
+                <div class="flex items-center gap-4 text-gray-600">
+                    <a href="#" class="hover:text-blue-600">हिंदी</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-blue-600">English</a>
+                </div>
+            </div>
+
+            <!-- Main Navigation -->
+            <div class="flex items-center justify-between py-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-orange-500 via-blue-600 to-green-600 rounded-full flex items-center justify-center shadow-lg">
+                        <span class="text-white font-bold text-xl">NS</span>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-blue-600 leading-tight">Namma Schemes</h1>
+                        <p class="text-xs text-gray-600">AI-Powered Scheme Assistant</p>
+                    </div>
+                </div>
+
+                <nav class="hidden lg:flex items-center gap-1">
+                    <a href="#" class="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium">Home</a>
+                    <a href="#schemes" class="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium">Browse Schemes</a>
+                    <a href="#eligibility" class="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium">Check Eligibility</a>
+                    <a href="#voice" class="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium">Voice Search</a>
+                    <a href="#about" class="px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium">About</a>
+                </nav>
+
+                <button class="hidden lg:block px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg font-semibold hover:shadow-lg">
+                    Search Schemes
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;0.4&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+
+        <div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full mb-6">
+                    <span class="text-sm font-semibold">🛡️ Official Government Platform</span>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    Discover Government Schemes<br>
+                    <span class="text-orange-400">Made for You</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    AI-powered platform that intelligently matches you with relevant welfare schemes. 
+                    Get personalized recommendations, check eligibility instantly, and access benefits designed for your needs.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <a href="#schemes" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-lg font-bold text-lg hover:shadow-2xl transition">
+                        Explore Schemes →
+                    </a>
+                    <a href="#eligibility" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-orange-500 text-white rounded-lg font-bold text-lg hover:shadow-2xl transition">
+                        Check Eligibility →
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                        <div class="text-3xl font-bold text-orange-400 mb-1">500+</div>
+                        <p class="text-sm text-blue-100">Active Schemes</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                        <div class="text-3xl font-bold text-orange-400 mb-1">10L+</div>
+                        <p class="text-sm text-blue-100">Citizens Helped</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                        <div class="text-3xl font-bold text-orange-400 mb-1">95%</div>
+                        <p class="text-sm text-blue-100">Success Rate</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                        <div class="text-3xl font-bold text-orange-400 mb-1">24/7</div>
+                        <p class="text-sm text-blue-100">AI Support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+                <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="rgb(249, 250, 251)"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- AI Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-200 rounded-full mb-4">
+                    <span class="text-sm font-semibold text-blue-600">🧠 AI-Powered Intelligence</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Namma Schemes is Different</h2>
+                <p class="text-lg text-gray-600">Unlike traditional portals, we use AI to personalize your experience</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl border-2 border-blue-100 hover:border-blue-600 transition hover:shadow-xl">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-white text-2xl">🧠</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Smart Predictions</h3>
+                    <p class="text-gray-600 leading-relaxed">AI analyzes your profile and predicts eligibility with 95% accuracy, ranking schemes by probability of approval.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-orange-50 to-white p-8 rounded-2xl border-2 border-orange-100 hover:border-orange-500 transition hover:shadow-xl">
+                    <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-white text-2xl">🎤</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Voice Assistance</h3>
+                    <p class="text-gray-600 leading-relaxed">Search schemes using voice in multiple Indian languages. Perfect for rural areas and elderly citizens.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl border-2 border-green-100 hover:border-green-600 transition hover:shadow-xl">
+                    <div class="w-14 h-14 bg-gradient-to-br from-green-600 to-green-700 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-white text-2xl">📈</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Simplified Language</h3>
+                    <p class="text-gray-600 leading-relaxed">Complex legal jargon converted to simple, easy-to-understand language that everyone can comprehend.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Grid Section -->
+    <section id="schemes" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Browse by Category</h2>
+                <p class="text-lg text-gray-600">Select your category to discover relevant government schemes and benefits</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+                <a href="#" class="group bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-blue-600 transition hover:shadow-xl hover:-translate-y-2 text-center">
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">👩</div>
+                    <h3 class="font-bold text-gray-900 mb-2 text-sm md:text-base">Women & Widows</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Welfare schemes for women empowerment</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-xs font-semibold text-blue-600 group-hover:underline">View Schemes →</span>
+                    </div>
+                </a>
+
+                <a href="#" class="group bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-blue-600 transition hover:shadow-xl hover:-translate-y-2 text-center">
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">🌾</div>
+                    <h3 class="font-bold text-gray-900 mb-2 text-sm md:text-base">Farmers</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Agricultural subsidies and support</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-xs font-semibold text-blue-600 group-hover:underline">View Schemes →</span>
+                    </div>
+                </a>
+
+                <a href="#" class="group bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-blue-600 transition hover:shadow-xl hover:-translate-y-2 text-center">
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">🎓</div>
+                    <h3 class="font-bold text-gray-900 mb-2 text-sm md:text-base">Students</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Scholarships and educational loans</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-xs font-semibold text-blue-600 group-hover:underline">View Schemes →</span>
+                    </div>
+                </a>
+
+                <a href="#" class="group bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-blue-600 transition hover:shadow-xl hover:-translate-y-2 text-center">
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">💼</div>
+                    <h3 class="font-bold text-gray-900 mb-2 text-sm md:text-base">Business & MSME</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Startup funding and MSME loans</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-xs font-semibold text-blue-600 group-hover:underline">View Schemes →</span>
+                    </div>
+                </a>
+
+                <a href="#" class="group bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-blue-600 transition hover:shadow-xl hover:-translate-y-2 text-center">
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">👴</div>
+                    <h3 class="font-bold text-gray-900 mb-2 text-sm md:text-base">Senior Citizens</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Pension schemes and elderly care</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-xs font-semibold text-blue-600 group-hover:underline">View Schemes →</span>
+                    </div>
+                </a>
+
+                <a href="#" class="group bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-blue-600 transition hover:shadow-xl hover:-translate-y-2 text-center">
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">🏳️⚧️</div>
+                    <h3 class="font-bold text-gray-900 mb-2 text-sm md:text-base">Transgender</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Support for transgender community</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-xs font-semibold text-blue-600 group-hover:underline">View Schemes →</span>
+                    </div>
+                </a>
+
+                <a href="#" class="group bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-blue-600 transition hover:shadow-xl hover:-translate-y-2 text-center">
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">🤝</div>
+                    <h3 class="font-bold text-gray-900 mb-2 text-sm md:text-base">SC/ST Schemes</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Reservation and welfare benefits</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-xs font-semibold text-blue-600 group-hover:underline">View Schemes →</span>
+                    </div>
+                </a>
+
+                <a href="#" class="group bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-blue-600 transition hover:shadow-xl hover:-translate-y-2 text-center">
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">♿</div>
+                    <h3 class="font-bold text-gray-900 mb-2 text-sm md:text-base">Differently Abled</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Disability benefits and support</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-xs font-semibold text-blue-600 group-hover:underline">View Schemes →</span>
+                    </div>
+                </a>
+
+                <a href="#" class="group bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-blue-600 transition hover:shadow-xl hover:-translate-y-2 text-center">
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">🏥</div>
+                    <h3 class="font-bold text-gray-900 mb-2 text-sm md:text-base">Healthcare</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Health insurance and medical aid</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-xs font-semibold text-blue-600 group-hover:underline">View Schemes →</span>
+                    </div>
+                </a>
+
+                <a href="#" class="group bg-white rounded-2xl p-6 border-2 border-gray-200 hover:border-blue-600 transition hover:shadow-xl hover:-translate-y-2 text-center">
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">🏠</div>
+                    <h3 class="font-bold text-gray-900 mb-2 text-sm md:text-base">Housing</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">Affordable housing schemes</p>
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <span class="text-xs font-semibold text-blue-600 group-hover:underline">View Schemes →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eligibility Check Section -->
+    <section id="eligibility" class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 border border-orange-200 rounded-full mb-4">
+                    <span class="text-sm font-semibold text-orange-600">⚡ Instant Assessment</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Quick Eligibility Check</h2>
+                <p class="text-lg text-gray-600">Share a few details and discover which schemes you qualify for</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-blue-50 to-white p-8 md:p-12 rounded-3xl border-2 border-blue-200">
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block font-bold text-sm mb-2 text-gray-900">📂 Category *</label>
+                            <select class="w-full px-4 py-3 bg-white border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none">
+                                <option>Select category</option>
+                                <option>👩 Women & Widows</option>
+                                <option>🌾 Farmers</option>
+                                <option>🎓 Students</option>
+                                <option>💼 Business & MSME</option>
+                                <option>👴 Senior Citizens</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-bold text-sm mb-2 text-gray-900">🎂 Age</label>
+                            <input type="number" placeholder="e.g., 25" class="w-full px-4 py-3 bg-white border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-sm mb-2 text-gray-900">👤 Gender</label>
+                            <select class="w-full px-4 py-3 bg-white border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none">
+                                <option>Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-bold text-sm mb-2 text-gray-900">💼 Occupation</label>
+                            <input type="text" placeholder="e.g., farmer" class="w-full px-4 py-3 bg-white border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-sm mb-2 text-gray-900">📍 City</label>
+                            <input type="text" placeholder="e.g., Bengaluru" class="w-full px-4 py-3 bg-white border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-sm mb-2 text-gray-900">💰 Annual Income (₹)</label>
+                            <input type="number" placeholder="e.g., 500000" class="w-full px-4 py-3 bg-white border-2 border-gray-300 rounded-xl focus:border-blue-600 focus:outline-none">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full px-8 py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl font-bold text-lg hover:shadow-2xl transition">
+                        🎯 Check Eligibility Now
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-gray-50 to-gray-100 border-t border-gray-200">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-4 text-lg">About Namma Schemes</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        AI-powered platform helping citizens discover and access government welfare schemes with personalized recommendations.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-4 text-lg">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-600 hover:text-blue-600">Home</a></li>
+                        <li><a href="#schemes" class="text-gray-600 hover:text-blue-600">Browse Schemes</a></li>
+                        <li><a href="#eligibility" class="text-gray-600 hover:text-blue-600">Check Eligibility</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-blue-600">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-4 text-lg">Categories</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-600 hover:text-blue-600">Women & Widows</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-blue-600">Farmers</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-blue-600">Students</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-blue-600">Healthcare</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-gray-900 mb-4 text-lg">Support</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>📧 support@nammaschemes.gov.in</li>
+                        <li>📞 1800-XXX-XXXX</li>
+                        <li>🕐 Mon-Fri: 9 AM - 6 PM</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-300 pt-6 text-center text-sm text-gray-600">
+                <p>© 2024 Namma Schemes. All rights reserved. A Digital India Initiative</p>
+            </div>
+        </div>
+        <div class="h-1 bg-gradient-to-r from-orange-500 via-white to-green-600"></div>
+    </footer>
+</body>
+</html>

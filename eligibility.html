@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Eligibility - Namma Schemes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #F4F7FB; }
+        .header { background: #1B5E9E; color: white; padding: 20px; text-align: center; }
+        .header h1 { font-size: 32px; margin-bottom: 8px; }
+        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .form-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h2 { color: #1B5E9E; margin-bottom: 24px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; color: #333; font-weight: 500; margin-bottom: 8px; }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #E0E0E0;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        input:focus, select:focus { outline: none; border-color: #1B5E9E; }
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: #1B5E9E;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .btn:hover { background: #0F3C6E; }
+        .back-link { text-align: center; margin-top: 20px; }
+        .back-link a { color: #1B5E9E; text-decoration: none; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>✅ Check Your Eligibility</h1>
+        <p>Find schemes you qualify for based on your profile</p>
+    </div>
+    <div class="container">
+        <div class="form-card">
+            <h2>Enter Your Details</h2>
+            <form id="eligibilityForm">
+                <div class="form-group">
+                    <label for="category">Category *</label>
+                    <select id="category" required>
+                        <option value="">Select Category</option>
+                        <option value="education">📚 Education & Scholarships</option>
+                        <option value="health">🏥 Health & Insurance</option>
+                        <option value="agriculture">🌾 Agriculture & Farming</option>
+                        <option value="housing">🏠 Housing & Urban</option>
+                        <option value="women">👶 Women & Children</option>
+                        <option value="pensions">💰 Pensions & Social Security</option>
+                        <option value="widow">🤝 Widow Welfare</option>
+                        <option value="transgender">🏳️⚧️ Transgender Support</option>
+                        <option value="disabled">♿ Disabled Persons</option>
+                        <option value="senior">👴 Senior Citizens</option>
+                        <option value="employment">💼 Employment & Skills</option>
+                        <option value="minority">🕌 Minority Welfare</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" min="0" max="100" placeholder="Enter your age">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender">
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="transgender">Transgender</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="income">Annual Income (₹)</label>
+                    <input type="number" id="income" min="0" placeholder="Enter annual income">
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <select id="state">
+                        <option value="all">All India</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Check Eligibility</button>
+            </form>
+            <div class="back-link">
+                <a href="dashboard.html">← Back to Dashboard</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('eligibilityForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const category = document.getElementById('category').value;
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            const income = document.getElementById('income').value;
+            const state = document.getElementById('state').value;
+            
+            if (!category) {
+                alert('Please select a category');
+                return;
+            }
+            
+            const params = new URLSearchParams({ category, age, gender, income, state });
+            window.location.href = `results.html?${params.toString()}`;
+        });
+    </script>
+</body>
+</html>
